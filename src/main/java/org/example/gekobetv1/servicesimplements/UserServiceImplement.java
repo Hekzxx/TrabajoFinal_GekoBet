@@ -1,4 +1,5 @@
 package org.example.gekobetv1.servicesimplements;
+import org.example.gekobetv1.entities.Country;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.example.gekobetv1.entities.User;
@@ -28,5 +29,9 @@ public class UserServiceImplement implements IUserService{
     @Override
     public User listId(int id) {
         return uR.findById(id).orElse(new User());
+    }
+    @Override
+    public List<User> findByDni(String dni) {
+        return uR.findByDni(dni);
     }
 }

@@ -28,4 +28,8 @@ public class CountryServiceImplement implements ICountryService{
     public Country listId(int id) {
         return cR.findById(id).orElse(new Country());
     }
+    @Override
+    public List<Country> findByNamecountry(String country) {
+        return cR.findByNamecountry(country);
+    }
 }

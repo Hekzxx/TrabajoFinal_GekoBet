@@ -1,4 +1,5 @@
 package org.example.gekobetv1.controllers;
+import org.example.gekobetv1.dtos.CountryDTO;
 import org.example.gekobetv1.dtos.UserDTO;
 import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.IUserService;
@@ -16,7 +17,7 @@ public class UserController {
     @PostMapping
     public void registrar(@RequestBody UserDTO s){
         ModelMapper m=new ModelMapper();
-        User sh=m.map(s,User.class);
+        User sh = m.map(s,User.class);
         uS.insert(sh);
     }
     @GetMapping
@@ -36,5 +37,13 @@ public class UserController {
         ModelMapper m= new ModelMapper();
         UserDTO dto=m.map(uS.listId(id),UserDTO.class);
         return dto;
+    }
+    @GetMapping("/buscarXdni")
+    public List<UserDTO> buscarDni(@RequestParam String dni){
+
+        return uS.findByDni(dni).stream().map(y->{
+            ModelMapper m=new ModelMapper();
+            return m.map(y,UserDTO.class);
+        }).collect(Collectors.toList());
     }
 }
