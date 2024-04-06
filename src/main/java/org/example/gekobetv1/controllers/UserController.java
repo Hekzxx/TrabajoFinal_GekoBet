@@ -1,5 +1,4 @@
 package org.example.gekobetv1.controllers;
-import org.example.gekobetv1.dtos.CountryDTO;
 import org.example.gekobetv1.dtos.UserDTO;
 import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.IUserService;
