@@ -14,10 +14,16 @@ public class UserController {
     @Autowired
     private IUserService uS;
     @PostMapping
-    public void registrar(@RequestBody UserDTO s){
+    public void registrar(@RequestBody UserDTO u){
         ModelMapper m=new ModelMapper();
-        User sh = m.map(s,User.class);
-        uS.insert(sh);
+        User us = m.map(u,User.class);
+        uS.insert(us);
+    }
+    @PutMapping
+    public void Editar(@RequestBody UserDTO u){
+        ModelMapper m=new ModelMapper();
+        User us = m.map(u,User.class);
+        uS.insert(us);
     }
     @GetMapping
     public List<UserDTO> list(){

@@ -1,11 +1,8 @@
 package org.example.gekobetv1.servicesimplements;
 
 import org.example.gekobetv1.entities.Role;
-import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.repositories.IRoleRepository;
-import org.example.gekobetv1.repositories.IUserRepository;
 import org.example.gekobetv1.servicesinterfaces.IRoleService;
-import org.example.gekobetv1.servicesinterfaces.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

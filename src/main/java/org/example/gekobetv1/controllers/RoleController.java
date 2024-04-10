@@ -1,7 +1,6 @@
 package org.example.gekobetv1.controllers;
 
 import org.example.gekobetv1.dtos.RoleDTO;
-import org.example.gekobetv1.dtos.UserDTO;
 import org.example.gekobetv1.entities.Role;
 import org.example.gekobetv1.servicesinterfaces.IRoleService;
 import org.modelmapper.ModelMapper;
@@ -17,14 +16,13 @@ public class RoleController {
     @Autowired
     private IRoleService rS;
     @PostMapping
-    public void registrar(@RequestBody RoleDTO s){
+    public void registrar(@RequestBody RoleDTO r){
         ModelMapper m=new ModelMapper();
-        Role sh = m.map(s, Role.class);
-        rS.insert(sh);
+        Role ro = m.map(r, Role.class);
+        rS.insert(ro);
     }
     @GetMapping
     public List<RoleDTO> list(){
-
         return rS.list().stream().map(y->{
             ModelMapper m=new ModelMapper();
             return m.map(y,RoleDTO.class);

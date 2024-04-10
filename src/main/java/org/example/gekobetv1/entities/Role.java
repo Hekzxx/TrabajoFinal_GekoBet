@@ -6,20 +6,22 @@ import jakarta.persistence.*;
 @Table(name = "Role")
 public class Role {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "User_id")
-    private User user;
     @Column(name = "tipo",nullable = false,length = 40)
     private  String tipo;
+
+    @ManyToOne
+    @JoinColumn(name = "idUser")
+    private User user;
 
     public Role() {
     }
 
-    public Role(int id, User user, String tipo) {
+    public Role(int id, String tipo, User user) {
         this.id = id;
-        this.user = user;
         this.tipo = tipo;
+        this.user = user;
     }
 
     public int getId() {
@@ -30,19 +32,19 @@ public class Role {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public String getTipo() {
         return tipo;
     }
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
