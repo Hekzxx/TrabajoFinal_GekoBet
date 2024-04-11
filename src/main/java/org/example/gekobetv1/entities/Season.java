@@ -10,7 +10,7 @@ public class Season {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "year",nullable = false)
-    private  Integer tipo;
+    private  Integer year;
 
     @ManyToOne
     @JoinColumn(name = "idCountry")
@@ -19,9 +19,9 @@ public class Season {
     public Season() {
     }
 
-    public Season(int id, Integer tipo, Country country) {
+    public Season(int id, Integer year, Country country) {
         this.id = id;
-        this.tipo = tipo;
+        this.year = year;
         this.country = country;
     }
 
@@ -33,12 +33,12 @@ public class Season {
         this.id = id;
     }
 
-    public Integer getTipo() {
-        return tipo;
+    public Integer getYear() {
+        return year;
     }
 
-    public void setTipo(Integer tipo) {
-        this.tipo = tipo;
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
     public Country getCountry() {

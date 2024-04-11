@@ -4,7 +4,7 @@ import org.example.gekobetv1.entities.Country;
 
 public class SeasonDTO {
     private int id;
-    private  Integer tipo;
+    private  Integer year;
     private Country country;
 
     public int getId() {
@@ -15,12 +15,12 @@ public class SeasonDTO {
         this.id = id;
     }
 
-    public Integer getTipo() {
-        return tipo;
+    public Integer getYear() {
+        return year;
     }
 
-    public void setTipo(Integer tipo) {
-        this.tipo = tipo;
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
     public Country getCountry() {
