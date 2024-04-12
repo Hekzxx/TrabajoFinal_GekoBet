@@ -7,5 +7,5 @@ import java.util.List;
 
 @Repository
 public interface IUserRepository extends JpaRepository<User,Integer> {
-    public List<User> findByDni(String dni);
+    public List<User> findByDni(Integer dni);
 }

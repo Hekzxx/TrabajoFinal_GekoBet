@@ -1,6 +1,8 @@
 package org.example.gekobetv1.dtos;
 
 
+import jakarta.persistence.Column;
+
 public class UserDTO {
 
     private int id;
@@ -9,8 +11,8 @@ public class UserDTO {
     private String mail;
     private Boolean estado;
     private String address;
-    private String phone;
-    private String dni;
+    private Integer phone;
+    private Integer dni;
 
     public int getId() {
         return id;
@@ -60,19 +62,19 @@ public class UserDTO {
         this.address = address;
     }
 
-    public String getPhone() {
+    public Integer getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Integer phone) {
         this.phone = phone;
     }
 
-    public String getDni() {
+    public Integer getDni() {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public void setDni(Integer dni) {
         this.dni = dni;
     }
 }

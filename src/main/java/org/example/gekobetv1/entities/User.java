@@ -18,15 +18,15 @@ public class User {
     private Boolean estado;
     @Column(name = "address",nullable = false,length = 40)
     private String address;
-    @Column(name = "phone",nullable = false,length = 40)
-    private String phone;
-    @Column(name = "dni",nullable = false,length = 40)
-    private String dni;
+    @Column(name = "phone",nullable = false)
+    private Integer phone;
+    @Column(name = "dni",nullable = false)
+    private Integer dni;
 
     public User() {
     }
 
-    public User(int id, String username, String password, String mail, Boolean estado, String address, String phone, String dni) {
+    public User(int id, String username, String password, String mail, Boolean estado, String address, Integer phone, Integer dni) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -85,19 +85,19 @@ public class User {
         this.address = address;
     }
 
-    public String getPhone() {
+    public Integer getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Integer phone) {
         this.phone = phone;
     }
 
-    public String getDni() {
+    public Integer getDni() {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public void setDni(Integer dni) {
         this.dni = dni;
     }
 }

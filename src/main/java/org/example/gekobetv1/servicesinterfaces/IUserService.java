@@ -7,5 +7,5 @@ public interface IUserService {
     public List<User> list();
     public void delete(int id);
     public User listId(int id);
-    public List<User> findByDni(String dni);
+    public List<User> findByDni(Integer dni);
 }

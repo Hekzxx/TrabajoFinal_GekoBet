@@ -44,7 +44,7 @@ public class UserController {
         return dto;
     }
     @GetMapping("/buscarXdni")
-    public List<UserDTO> buscarDni(@RequestParam String dni){
+    public List<UserDTO> buscarDni(@RequestParam Integer dni){
 
         return uS.findByDni(dni).stream().map(y->{
             ModelMapper m=new ModelMapper();
