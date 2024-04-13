@@ -1,6 +1,8 @@
 package org.example.gekobetv1.controllers;
 import org.example.gekobetv1.dtos.SeasonDTO;
+import org.example.gekobetv1.dtos.UserDTO;
 import org.example.gekobetv1.entities.Season;
+import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.ISeasonService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,12 @@ public class SeasonController {
             ModelMapper m=new ModelMapper();
             return m.map(y,SeasonDTO.class);
         }).collect(Collectors.toList());
+    }
+    @PutMapping
+    public void Editar(@RequestBody SeasonDTO s){
+        ModelMapper m=new ModelMapper();
+        Season se = m.map(s,Season.class);
+        sS.insert(se);
     }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
