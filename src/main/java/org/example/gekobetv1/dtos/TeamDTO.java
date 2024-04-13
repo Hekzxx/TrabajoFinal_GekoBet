@@ -3,17 +3,17 @@ import org.example.gekobetv1.entities.Ligue;
 import org.example.gekobetv1.entities.Match;
 
 public class TeamDTO {
-    private int idTeam;
+    private int id;
     private String nameteam;
     private Ligue ligue;
     private Match match;
 
-    public int getIdTeam() {
-        return idTeam;
+    public int getId() {
+        return id;
     }
 
-    public void setIdTeam(int idTeam) {
-        this.idTeam = idTeam;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNameteam() {

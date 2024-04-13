@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idTeam;
+    private int id;
     @Column(name = "nameteam", nullable = false, length = 40)
     private String nameteam;
 
@@ -22,19 +22,19 @@ public class Team {
     public Team() {
     }
 
-    public Team(int idTeam, String nameteam, Ligue ligue, Match match) {
-        this.idTeam = idTeam;
+    public Team(int id, String nameteam, Ligue ligue, Match match) {
+        this.id = id;
         this.nameteam = nameteam;
         this.ligue = ligue;
         this.match = match;
     }
 
-    public int getIdTeam() {
-        return idTeam;
+    public int getId() {
+        return id;
     }
 
-    public void setIdTeam(int idTeam) {
-        this.idTeam = idTeam;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNameteam() {
