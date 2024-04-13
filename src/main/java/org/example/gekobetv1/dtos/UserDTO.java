@@ -1,8 +1,5 @@
 package org.example.gekobetv1.dtos;
 
-
-import jakarta.persistence.Column;
-
 public class UserDTO {
 
     private int id;

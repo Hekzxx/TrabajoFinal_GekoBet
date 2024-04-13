@@ -19,12 +19,7 @@ public class UserController {
         User us = m.map(u,User.class);
         uS.insert(us);
     }
-    @PutMapping
-    public void Editar(@RequestBody UserDTO u){
-        ModelMapper m=new ModelMapper();
-        User us = m.map(u,User.class);
-        uS.insert(us);
-    }
+
     @GetMapping
     public List<UserDTO> list(){
 
@@ -33,6 +28,14 @@ public class UserController {
             return m.map(y,UserDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @PutMapping
+    public void Editar(@RequestBody UserDTO u){
+        ModelMapper m=new ModelMapper();
+        User us = m.map(u,User.class);
+        uS.insert(us);
+    }
+
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         uS.delete(id);

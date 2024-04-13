@@ -1,7 +1,9 @@
 package org.example.gekobetv1.controllers;
 
 import org.example.gekobetv1.dtos.RoleDTO;
+import org.example.gekobetv1.dtos.UserDTO;
 import org.example.gekobetv1.entities.Role;
+import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.IRoleService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,13 @@ public class RoleController {
             ModelMapper m=new ModelMapper();
             return m.map(y,RoleDTO.class);
         }).collect(Collectors.toList());
+    }
+
+    @PutMapping
+    public void Editar(@RequestBody RoleDTO r){
+        ModelMapper m=new ModelMapper();
+        Role ro = m.map(r,Role.class);
+        rS.insert(ro);
     }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
