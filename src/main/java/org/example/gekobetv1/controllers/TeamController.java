@@ -1,7 +1,9 @@
 package org.example.gekobetv1.controllers;
 
 import org.example.gekobetv1.dtos.TeamDTO;
+import org.example.gekobetv1.dtos.UserDTO;
 import org.example.gekobetv1.entities.Team;
+import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.ITeamService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,12 @@ public class TeamController {
             ModelMapper m=new ModelMapper();
             return m.map(y,TeamDTO.class);
         }).collect(Collectors.toList());
+    }
+    @PutMapping
+    public void Editar(@RequestBody TeamDTO t){
+        ModelMapper m=new ModelMapper();
+        Team te = m.map(t,Team.class);
+        tS.insert(te);
     }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
