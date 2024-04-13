@@ -1,6 +1,8 @@
 package org.example.gekobetv1.controllers;
 import org.example.gekobetv1.dtos.TicketDTO;
+import org.example.gekobetv1.dtos.UserDTO;
 import org.example.gekobetv1.entities.Ticket;
+import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.ITicketService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +19,8 @@ public class TicketController {
     @PostMapping
     public void registrar(@RequestBody TicketDTO t){
         ModelMapper m=new ModelMapper();
-        Ticket ro = m.map(t, Ticket.class);
-        tS.insert(ro);
+        Ticket ti = m.map(t, Ticket.class);
+        tS.insert(ti);
     }
     @GetMapping
     public List<TicketDTO> list(){
@@ -26,6 +28,12 @@ public class TicketController {
             ModelMapper m=new ModelMapper();
             return m.map(y,TicketDTO.class);
         }).collect(Collectors.toList());
+    }
+    @PutMapping
+    public void Editar(@RequestBody TicketDTO t){
+        ModelMapper m=new ModelMapper();
+        Ticket ti = m.map(t,Ticket.class);
+        tS.insert(ti);
     }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
