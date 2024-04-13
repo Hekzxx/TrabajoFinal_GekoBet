@@ -1,7 +1,9 @@
 package org.example.gekobetv1.controllers;
+import org.example.gekobetv1.dtos.UserDTO;
 import org.example.gekobetv1.entities.Record;
 import org.example.gekobetv1.dtos.MatchDTO;
 import org.example.gekobetv1.dtos.RecordDTO;
+import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.IRecordService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,12 @@ public class RecordController {
             ModelMapper m=new ModelMapper();
             return m.map(y,RecordDTO.class);
         }).collect(Collectors.toList());
+    }
+    @PutMapping
+    public void Editar(@RequestBody RecordDTO r){
+        ModelMapper m=new ModelMapper();
+        Record re = m.map(r,Record.class);
+        rS.insert(re);
     }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
