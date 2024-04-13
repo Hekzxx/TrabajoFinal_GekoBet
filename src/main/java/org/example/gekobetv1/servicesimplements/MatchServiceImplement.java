@@ -1,8 +1,6 @@
 package org.example.gekobetv1.servicesimplements;
-
 import org.example.gekobetv1.entities.Match;
 import org.example.gekobetv1.repositories.IMatchRepository;
-import org.example.gekobetv1.repositories.ITicketRepository;
 import org.example.gekobetv1.servicesinterfaces.IMatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
