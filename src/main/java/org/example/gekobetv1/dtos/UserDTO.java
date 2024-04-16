@@ -10,6 +10,7 @@ public class UserDTO {
     private String address;
     private Integer phone;
     private Integer dni;
+    private Boolean enabled;
 
     public int getId() {
         return id;
@@ -73,5 +74,13 @@ public class UserDTO {
 
     public void setDni(Integer dni) {
         this.dni = dni;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 }

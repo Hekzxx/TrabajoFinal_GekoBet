@@ -2,9 +2,12 @@ package org.example.gekobetv1.entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
-@Table(name = "Role")
-public class Role {
+@Table(name = "Role", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "tipo"})})
+public class Role implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -12,7 +15,7 @@ public class Role {
     private  String tipo;
 
     @ManyToOne
-    @JoinColumn(name = "idUser")
+    @JoinColumn(name = "user_id")
     private User user;
 
     public Role() {

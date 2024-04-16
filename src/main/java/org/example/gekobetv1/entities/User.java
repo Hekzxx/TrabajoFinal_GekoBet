@@ -1,16 +1,19 @@
 package org.example.gekobetv1.entities;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+import java.util.List;
+
 
 @Entity
 @Table(name = "Usuario")
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "username",nullable = false,length = 40)
     private  String username;
-    @Column(name = "password",nullable = false,length = 40)
+    @Column(name = "password",nullable = false,length = 200)
     private String password;
     @Column(name = "mail",nullable = false,length = 40)
     private String mail;
@@ -22,11 +25,14 @@ public class User {
     private Integer phone;
     @Column(name = "dni",nullable = false)
     private Integer dni;
+    private Boolean enabled;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private List<Role> roles;
 
     public User() {
     }
-
-    public User(int id, String username, String password, String mail, Boolean estado, String address, Integer phone, Integer dni) {
+    public User(int id, String username, String password, String mail, Boolean estado, String address, Integer phone, Integer dni, Boolean enabled, List<Role> roles) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -35,6 +41,8 @@ public class User {
         this.address = address;
         this.phone = phone;
         this.dni = dni;
+        this.enabled = enabled;
+        this.roles = roles;
     }
 
     public int getId() {
@@ -99,5 +107,21 @@ public class User {
 
     public void setDni(Integer dni) {
         this.dni = dni;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }
