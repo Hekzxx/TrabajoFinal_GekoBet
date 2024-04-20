@@ -26,4 +26,11 @@ public class MatchServiceImplement implements IMatchService {
     public Match listId(int id) {
         return mR.findById(id).orElse(new Match());
     }
+
+    @Override
+    public List<String[]> cantidadPartidosXTemporada(int anio_ingresado) {
+        return mR.cantidadPartidosXTemporada(anio_ingresado);
+    }
+
+
 }

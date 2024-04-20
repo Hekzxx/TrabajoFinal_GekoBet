@@ -7,7 +7,7 @@ public class RecordDTO {
     private int id;
     private LocalDate dateRecord;
     private Integer resultado;
-    private Team team;
+    private TeamDTO team;
 
     public int getId() {
         return id;
@@ -33,11 +33,11 @@ public class RecordDTO {
         this.resultado = resultado;
     }
 
-    public Team getTeam() {
+    public TeamDTO getTeam() {
         return team;
     }
 
-    public void setTeam(Team team) {
+    public void setTeam(TeamDTO team) {
         this.team = team;
     }
 }

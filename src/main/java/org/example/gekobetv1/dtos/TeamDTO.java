@@ -5,8 +5,8 @@ import org.example.gekobetv1.entities.Match;
 public class TeamDTO {
     private int id;
     private String nameteam;
-    private Ligue ligue;
-    private Match match;
+    private LigueDTO ligue;
+    private MatchDTO match;
 
     public int getId() {
         return id;
@@ -24,19 +24,19 @@ public class TeamDTO {
         this.nameteam = nameteam;
     }
 
-    public Ligue getLigue() {
+    public LigueDTO getLigue() {
         return ligue;
     }
 
-    public void setLigue(Ligue ligue) {
+    public void setLigue(LigueDTO ligue) {
         this.ligue = ligue;
     }
 
-    public Match getMatch() {
+    public MatchDTO getMatch() {
         return match;
     }
 
-    public void setMatch(Match match) {
+    public void setMatch(MatchDTO match) {
         this.match = match;
     }
 }

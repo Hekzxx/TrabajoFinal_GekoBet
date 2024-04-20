@@ -4,8 +4,8 @@ import org.example.gekobetv1.entities.User;
 
 public class FavoriteDTO {
     private int id;
-    private User user;
-    private Team team;
+    private UserDTO user;
+    private TeamDTO team;
 
     public int getId() {
         return id;
@@ -15,19 +15,19 @@ public class FavoriteDTO {
         this.id = id;
     }
 
-    public User getUser() {
+    public UserDTO getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserDTO user) {
         this.user = user;
     }
 
-    public Team getTeam() {
+    public TeamDTO getTeam() {
         return team;
     }
 
-    public void setTeam(Team team) {
+    public void setTeam(TeamDTO team) {
         this.team = team;
     }
 }

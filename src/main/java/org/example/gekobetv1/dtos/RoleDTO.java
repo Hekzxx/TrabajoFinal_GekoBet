@@ -4,7 +4,7 @@ import org.example.gekobetv1.entities.User;
 public class RoleDTO {
     private int id;
     private  String tipo;
-    private User user;
+    private UserDTO user;
 
     public int getId() {
         return id;
@@ -21,12 +21,11 @@ public class RoleDTO {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
-    public User getUser() {
+    public UserDTO getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserDTO user) {
         this.user = user;
     }
 }

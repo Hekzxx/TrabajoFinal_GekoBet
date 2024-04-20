@@ -7,7 +7,7 @@ public class MatchDTO {
     private int id;
     private LocalDate dateMatch;
     private  String versus;
-    private Ticket ticket;
+    private TicketDTO ticket;
 
     public int getId() {
         return id;
@@ -33,11 +33,11 @@ public class MatchDTO {
         this.versus = versus;
     }
 
-    public Ticket getTicket() {
+    public TicketDTO getTicket() {
         return ticket;
     }
 
-    public void setTicket(Ticket ticket) {
+    public void setTicket(TicketDTO ticket) {
         this.ticket = ticket;
     }
 }

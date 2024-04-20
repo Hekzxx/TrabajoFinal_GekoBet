@@ -5,7 +5,7 @@ public class TicketDTO {
     private int id;
     private  Float probabilidad;
     private  String equipoGanador;
-    private User user;
+    private UserDTO user;
 
     public int getId() {
         return id;
@@ -31,11 +31,11 @@ public class TicketDTO {
         this.equipoGanador = equipoGanador;
     }
 
-    public User getUser() {
+    public UserDTO getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserDTO user) {
         this.user = user;
     }
 }

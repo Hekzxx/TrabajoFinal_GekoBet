@@ -25,7 +25,6 @@ public class CountryController {
         cS.insert(co);
     }
     @GetMapping
-    @PreAuthorize("hasAuthority('USER')")
     public List<CountryDTO> list(){
 
         return cS.list().stream().map(y->{

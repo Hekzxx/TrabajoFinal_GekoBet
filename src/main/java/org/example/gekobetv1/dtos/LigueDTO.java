@@ -4,7 +4,7 @@ import org.example.gekobetv1.entities.Season;
 public class LigueDTO {
     private int id;
     private  String nameligue;
-    private Season season;
+    private SeasonDTO season;
 
     public int getId() {
         return id;
@@ -22,11 +22,11 @@ public class LigueDTO {
         this.nameligue = nameligue;
     }
 
-    public Season getSeason() {
+    public SeasonDTO getSeason() {
         return season;
     }
 
-    public void setSeason(Season season) {
+    public void setSeason(SeasonDTO season) {
         this.season = season;
     }
 }
