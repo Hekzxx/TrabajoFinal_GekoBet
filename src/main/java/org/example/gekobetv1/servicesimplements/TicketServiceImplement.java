@@ -20,6 +20,11 @@ public class TicketServiceImplement implements ITicketService {
     public List<Ticket> list() { return tR.findAll(); }
 
     @Override
+    public List<String[]> cantidadTicketsXTemporada(int anio_ingresado) {
+        return tR.cantidadTicketsXTemporada(anio_ingresado);
+    }
+
+    @Override
     public void delete(int id) { tR.deleteById(id); }
 
     @Override
