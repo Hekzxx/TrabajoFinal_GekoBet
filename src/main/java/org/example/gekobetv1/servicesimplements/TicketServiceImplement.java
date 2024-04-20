@@ -20,8 +20,8 @@ public class TicketServiceImplement implements ITicketService {
     public List<Ticket> list() { return tR.findAll(); }
 
     @Override
-    public List<String[]> cantidadTicketsXTemporada(int anio_ingresado) {
-        return tR.cantidadTicketsXTemporada(anio_ingresado);
+    public List<String[]> cantidadTicketsXPais(String pais_ingresado) {
+        return tR.cantidadTicketsXPais(pais_ingresado);
     }
 
     @Override

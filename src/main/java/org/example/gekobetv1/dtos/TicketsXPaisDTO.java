@@ -1,6 +1,6 @@
 package org.example.gekobetv1.dtos;
 
-public class TicketsXTemporadaDTO {
+public class TicketsXPaisDTO {
     private int total_tickets;
 
     public int getTotal_tickets() {
