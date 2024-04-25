@@ -19,5 +19,10 @@ public interface ITeamRepository extends JpaRepository<Team, Integer> {
     public List<String[]> cantidadEquiposXLigaXTemporadaActual(String liga_ingresada);
 
 
-
+    @Query(value = "SELECT t.nameteam\n" +
+            "FROM team t\n" +
+            "INNER JOIN ligue l ON t.id_ligue = l.id\n" +
+            "INNER JOIN season s ON l.id_season = s.id\n" +
+            "WHERE s.year=:año_ingresado",nativeQuery = true)
+    public List<String[]> teamsBySeason(int año_ingresado);
 }
