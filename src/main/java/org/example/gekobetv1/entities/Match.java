@@ -16,17 +16,22 @@ public class Match {
     private  String versus;
 
     @ManyToOne
-    @JoinColumn(name = "idTicket")
-    private Ticket ticket;
+    @JoinColumn(name = "idTeam")
+    private Team team1;
+
+    @ManyToOne
+    @JoinColumn(name = "idTeam")
+    private Team team2;
 
     public Match() {
     }
 
-    public Match(int id, LocalDate dateMatch, String versus, Ticket ticket) {
+    public Match(int id, LocalDate dateMatch, String versus, Team team1, Team team2) {
         this.id = id;
         this.dateMatch = dateMatch;
         this.versus = versus;
-        this.ticket = ticket;
+        this.team1 = team1;
+        this.team2 = team2;
     }
 
     public int getId() {
@@ -53,11 +58,19 @@ public class Match {
         this.versus = versus;
     }
 
-    public Ticket getTicket() {
-        return ticket;
+    public Team getTeam1() {
+        return team1;
     }
 
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
+    public void setTeam1(Team team1) {
+        this.team1 = team1;
+    }
+
+    public Team getTeam2() {
+        return team2;
+    }
+
+    public void setTeam2(Team team2) {
+        this.team2 = team2;
     }
 }
