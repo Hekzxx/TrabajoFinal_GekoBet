@@ -10,4 +10,5 @@ public interface ITeamService {
     public void delete(int id);
     public Team listId(int id);
     public List<String[]> cantidadEquiposXLigaXTemporadaActual(String liga_ingresada);
+    public List<String[]> teamsBySeason(int año_ingresado);
 }

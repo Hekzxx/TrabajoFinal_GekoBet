@@ -32,4 +32,9 @@ public class TeamServiceImplement implements ITeamService {
     public List<String[]> cantidadEquiposXLigaXTemporadaActual(String liga_ingresada) {
         return tR.cantidadEquiposXLigaXTemporadaActual(liga_ingresada);
     }
+
+    @Override
+    public List<String[]> teamsBySeason(int año_ingresado) {
+        return tR.teamsBySeason(año_ingresado);
+    }
 }
