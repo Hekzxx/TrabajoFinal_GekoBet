@@ -9,4 +9,5 @@ public interface IFavoriteService {
     public List<Favorite> list();
     public void delete(int id);
     public Favorite listId(int id);
+    public List<String[]> equiposFavoritosXpais(int id_usuario);
 }
