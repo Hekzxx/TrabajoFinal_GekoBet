@@ -27,4 +27,9 @@ public class TeamServiceImplement implements ITeamService {
     public Team listId(int id) {
         return tR.findById(id).orElse(new Team());
     }
+
+    @Override
+    public List<String[]> cantidadEquiposXLigaXTemporadaActual(String liga_ingresada) {
+        return tR.cantidadEquiposXLigaXTemporadaActual(liga_ingresada);
+    }
 }

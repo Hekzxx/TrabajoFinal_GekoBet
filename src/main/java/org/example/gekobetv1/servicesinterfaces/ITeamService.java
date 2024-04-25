@@ -9,4 +9,5 @@ public interface ITeamService {
     public List<Team> list();
     public void delete(int id);
     public Team listId(int id);
+    public List<String[]> cantidadEquiposXLigaXTemporadaActual(String liga_ingresada);
 }
