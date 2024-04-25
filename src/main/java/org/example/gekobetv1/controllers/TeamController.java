@@ -46,7 +46,17 @@ public class TeamController {
         }
         return dtoLista;
     }
-
+    @GetMapping("/CantidadEquipos_por_Temporada/{año_ingresado}")
+    public List<TeamDTO> teamsBySeason(@PathVariable("año_ingresado") int año_ingresado){
+        List<String[]> filaLista= tS.teamsBySeason(año_ingresado);
+        List<TeamDTO> dtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            TeamDTO dto = new TeamDTO();
+            dto.setNameteam(columna[0]);
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
     @PutMapping
     public void Editar(@RequestBody TeamDTO t){
         ModelMapper m=new ModelMapper();
@@ -63,6 +73,7 @@ public class TeamController {
         TeamDTO dto=m.map(tS.listId(id),TeamDTO.class);
         return dto;
     }
+
 
 
 
