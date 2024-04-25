@@ -1,9 +1,6 @@
 package org.example.gekobetv1.controllers;
 
-import org.example.gekobetv1.dtos.CantTeamXLigueActualSeasonDTO;
-import org.example.gekobetv1.dtos.TeamDTO;
-import org.example.gekobetv1.dtos.TicketsXPaisDTO;
-import org.example.gekobetv1.dtos.UserDTO;
+import org.example.gekobetv1.dtos.*;
 import org.example.gekobetv1.entities.Team;
 import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.ITeamService;
@@ -47,11 +44,11 @@ public class TeamController {
         return dtoLista;
     }
     @GetMapping("/CantidadEquipos_por_Temporada/{año_ingresado}")
-    public List<TeamDTO> teamsBySeason(@PathVariable("año_ingresado") int año_ingresado){
+    public List<TeamXSeasonDTO> teamsBySeason(@PathVariable("año_ingresado") int año_ingresado){
         List<String[]> filaLista= tS.teamsBySeason(año_ingresado);
-        List<TeamDTO> dtoLista = new ArrayList<>();
+        List<TeamXSeasonDTO> dtoLista = new ArrayList<>();
         for(String[] columna:filaLista){
-            TeamDTO dto = new TeamDTO();
+            TeamXSeasonDTO dto = new TeamXSeasonDTO();
             dto.setNameteam(columna[0]);
             dtoLista.add(dto);
         }
