@@ -15,21 +15,22 @@ public class Ticket {
     private  String equipoGanador;
 
     @ManyToOne
-    @JoinColumn(name = "idMatch")
-    private Match match;
-    @ManyToOne
     @JoinColumn(name = "idUser")
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "idMatch")
+    private Match match;
 
     public Ticket() {
     }
 
-    public Ticket(int id, Float probabilidad, String equipoGanador, Match match, User user) {
+    public Ticket(int id, Float probabilidad, String equipoGanador, User user, Match match) {
         this.id = id;
         this.probabilidad = probabilidad;
         this.equipoGanador = equipoGanador;
-        this.match = match;
         this.user = user;
+        this.match = match;
     }
 
     public int getId() {
@@ -56,19 +57,19 @@ public class Ticket {
         this.equipoGanador = equipoGanador;
     }
 
-    public Match getMatch() {
-        return match;
-    }
-
-    public void setMatch(Match match) {
-        this.match = match;
-    }
-
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Match getMatch() {
+        return match;
+    }
+
+    public void setMatch(Match match) {
+        this.match = match;
     }
 }

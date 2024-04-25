@@ -1,5 +1,4 @@
 package org.example.gekobetv1.dtos;
-import org.example.gekobetv1.entities.Season;
 
 public class LigueDTO {
     private int id;

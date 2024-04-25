@@ -6,6 +6,7 @@ public class TicketDTO {
     private  Float probabilidad;
     private  String equipoGanador;
     private UserDTO user;
+    private MatchDTO match;
 
     public int getId() {
         return id;
@@ -37,5 +38,13 @@ public class TicketDTO {
 
     public void setUser(UserDTO user) {
         this.user = user;
+    }
+
+    public MatchDTO getMatch() {
+        return match;
+    }
+
+    public void setMatch(MatchDTO match) {
+        this.match = match;
     }
 }

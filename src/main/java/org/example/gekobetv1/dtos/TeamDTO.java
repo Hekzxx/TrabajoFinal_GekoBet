@@ -6,7 +6,6 @@ public class TeamDTO {
     private int id;
     private String nameteam;
     private LigueDTO ligue;
-    private MatchDTO match;
 
     public int getId() {
         return id;
@@ -30,13 +29,5 @@ public class TeamDTO {
 
     public void setLigue(LigueDTO ligue) {
         this.ligue = ligue;
-    }
-
-    public MatchDTO getMatch() {
-        return match;
-    }
-
-    public void setMatch(MatchDTO match) {
-        this.match = match;
     }
 }
