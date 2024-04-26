@@ -2,6 +2,8 @@ package org.example.gekobetv1.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Random;
+
 @Entity
 @Table(name = "Ticket")
 public class Ticket {
@@ -23,6 +25,7 @@ public class Ticket {
     private Match match;
 
     public Ticket() {
+
     }
 
     public Ticket(int id, Float probabilidad, String equipoGanador, User user, Match match) {

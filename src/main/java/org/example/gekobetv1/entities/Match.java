@@ -16,11 +16,11 @@ public class Match {
     private  String versus;
 
     @ManyToOne
-    @JoinColumn(name = "idTeam")
+    @JoinColumn(name = "idTeam1")
     private Team team1;
 
     @ManyToOne
-    @JoinColumn(name = "idTeam")
+    @JoinColumn(name = "idTeam2")
     private Team team2;
 
     public Match() {
