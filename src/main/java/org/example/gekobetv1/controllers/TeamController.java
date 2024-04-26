@@ -31,6 +31,32 @@ public class TeamController {
             return m.map(y,TeamDTO.class);
         }).collect(Collectors.toList());
     }
+    @GetMapping("/Equipos_Temporada_Actual")
+    public List<CantEquipoTempActualDTO> equipos_temporada_actual(){
+        List<String[]> filaLista= tS.cantEquipoTemporadaActual();
+        List<CantEquipoTempActualDTO> dtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            CantEquipoTempActualDTO dto = new CantEquipoTempActualDTO();
+            dto.setCantidad_equipo_temporada(Integer.parseInt(columna[0]));
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
+
+    @GetMapping("/Equipos_Favoritos_X_Pais/{pais_ingresado}/{id_usuario}")
+    public List<EquiposFavXPaisDTO> equipos_favoritos_pais(@PathVariable("pais_ingresado") String pais_ingresado,
+                                                           @PathVariable("id_usuario") int id_usuario){
+        List<String[]> filaLista= tS.listaEquipoFavoritoXPais(pais_ingresado,id_usuario);
+        List<EquiposFavXPaisDTO> dtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            EquiposFavXPaisDTO dto = new EquiposFavXPaisDTO();
+            dto.setId(Integer.parseInt(columna[0]));
+            dto.setId_ligue(Integer.parseInt(columna[1]));
+            dto.setNameteam(columna[2]);
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
 
     @PutMapping
     public void Editar(@RequestBody TeamDTO t){

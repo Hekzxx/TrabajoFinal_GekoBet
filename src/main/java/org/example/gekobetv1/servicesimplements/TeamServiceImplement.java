@@ -21,6 +21,16 @@ public class TeamServiceImplement implements ITeamService {
     public List<Team> list() { return tR.findAll(); }
 
     @Override
+    public List<String[]> cantEquipoTemporadaActual() {
+        return tR.cantEquipoTemporadaActual();
+    }
+
+    @Override
+    public List<String[]> listaEquipoFavoritoXPais(String pais_ingresado, int id_usuario) {
+        return tR.listaEquipoFavoritoXPais(pais_ingresado,id_usuario);
+    }
+
+    @Override
     public void delete(int id) { tR.deleteById(id); }
 
     @Override
