@@ -33,7 +33,8 @@ public class TeamXMatchServiceImplement implements ITeamXMatchService {
     }
 
     @Override
-    public List<String[]> PartidosXLiga() {
-        return tmR.PartidosXLiga();
+    public List<String[]> PartidosXLiga(String liga_ingresada) {
+        return tmR.PartidosXLiga(liga_ingresada);
     }
+
 }

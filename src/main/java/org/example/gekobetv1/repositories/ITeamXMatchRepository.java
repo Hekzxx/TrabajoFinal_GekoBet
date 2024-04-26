@@ -14,6 +14,6 @@ public interface ITeamXMatchRepository extends JpaRepository<TeamXMatch,Integer>
             "inner join teamsxmatches tm on m.id = tm.id_match \n" +
             "inner join team t on t.id = tm.id_team \n" +
             "inner join ligue l on l.id = t.id_ligue \n" +
-            "where l.nameligue = 'LigaMovistar' ", nativeQuery = true)
-    public List<String[]> PartidosXLiga();
+            "where l.nameligue = :liga_ingresada ", nativeQuery = true)
+    public List<String[]> PartidosXLiga(String liga_ingresada);
 }
