@@ -2,12 +2,8 @@ package org.example.gekobetv1.dtos;
 
 
 public class CountryDTO {
-
-
     private int id;
-
     private  String namecountry;
-
     public int getId() {
         return id;
     }

@@ -9,6 +9,5 @@ public interface IMatchService {
     public List<Match> list();
     public void delete(int id);
     public Match listId(int id);
-
     public List<String[]> cantidadPartidosXTemporada(int anio_ingresado);
 }
