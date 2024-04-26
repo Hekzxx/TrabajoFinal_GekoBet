@@ -1,7 +1,5 @@
 package org.example.gekobetv1.dtos;
 
-import org.example.gekobetv1.entities.Country;
-
 public class SeasonDTO {
     private int id;
     private  Integer year;
