@@ -1,13 +1,13 @@
 package org.example.gekobetv1.dtos;
 
 public class TicketsXPaisDTO {
-    private int total_tickets;
+    private int cantidad_tickets;
 
-    public int getTotal_tickets() {
-        return total_tickets;
+    public int getCantidad_tickets() {
+        return cantidad_tickets;
     }
 
-    public void setTotal_tickets(int total_tickets) {
-        this.total_tickets = total_tickets;
+    public void setCantidad_tickets(int cantidad_tickets) {
+        this.cantidad_tickets = cantidad_tickets;
     }
 }
