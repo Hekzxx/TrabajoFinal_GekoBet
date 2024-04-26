@@ -1,5 +1,6 @@
 package org.example.gekobetv1.controllers;
 import org.example.gekobetv1.dtos.TicketDTO;
+import org.example.gekobetv1.dtos.TicketXTeamDTO;
 import org.example.gekobetv1.dtos.TicketsXPaisDTO;
 import org.example.gekobetv1.entities.Ticket;
 import org.example.gekobetv1.servicesinterfaces.ITicketService;
@@ -43,6 +44,7 @@ public class TicketController {
         }
         return dtoLista;
     }
+
     @PutMapping
     public void Editar(@RequestBody TicketDTO t){
         ModelMapper m=new ModelMapper();

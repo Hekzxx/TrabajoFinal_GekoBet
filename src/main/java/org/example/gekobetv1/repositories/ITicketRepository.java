@@ -20,7 +20,7 @@ public interface ITicketRepository extends JpaRepository<Ticket,Integer> {
     public List<String[]> cantidadTicketsXPais(String pais_ingresado);
 
     @Query(value = "SELECT ti.equipo_ganador AS nombre_equipo,\n" +
-            "AVG(ti.probabilidad) AS promedio_probabilidad\n" +
+            "AVG(ti.probabilidad) AS promedio_probabilidad \n" +
             "FROM ticket ti\n" +
             "inner join match m on m.id = ti.id_match group by ti.equipo_ganador;", nativeQuery = true)
     public List<String[]> Probabilidadporequipo();
