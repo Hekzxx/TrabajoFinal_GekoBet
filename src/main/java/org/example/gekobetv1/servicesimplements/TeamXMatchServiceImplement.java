@@ -31,10 +31,4 @@ public class TeamXMatchServiceImplement implements ITeamXMatchService {
     public TeamXMatch listId(int id) {
         return tmR.findById(id).orElse(new TeamXMatch());
     }
-
-    @Override
-    public List<String[]> PartidosXLiga(String liga_ingresada) {
-        return tmR.PartidosXLiga(liga_ingresada);
-    }
-
 }

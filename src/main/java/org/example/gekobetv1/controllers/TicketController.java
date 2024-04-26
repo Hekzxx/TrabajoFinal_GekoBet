@@ -51,18 +51,12 @@ public class TicketController {
         List<TicketXTeamDTO> dtoLista = new ArrayList<>();
         for(String[] columna:filaLista){
             TicketXTeamDTO dto = new TicketXTeamDTO();
-
-            dto.setProbabilidad_equipo(Integer.parseInt(columna[0]));
-
             dto.setNombre_equipo(columna[0]);
             dto.setPromedio_probabilidad(Float.parseFloat(columna[1]));
-
             dtoLista.add(dto);
         }
         return dtoLista;
     }
-
-
     @PutMapping
     public void Editar(@RequestBody TicketDTO t){
         ModelMapper m=new ModelMapper();

@@ -9,5 +9,4 @@ public interface ITeamXMatchService {
     public List<TeamXMatch> list();
     public void delete(int id);
     public TeamXMatch listId(int id);
-    public List<String[]> PartidosXLiga(String liga_ingresada);
 }
