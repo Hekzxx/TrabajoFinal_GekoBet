@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface IRecordRepository extends JpaRepository<Record,Integer> {
-    
+
 }
