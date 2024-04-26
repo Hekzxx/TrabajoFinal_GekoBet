@@ -1,5 +1,6 @@
 package org.example.gekobetv1.controllers;
 import org.example.gekobetv1.dtos.MatchDTO;
+import org.example.gekobetv1.dtos.QueryMatchEquipoXTempDTO;
 import org.example.gekobetv1.dtos.QueryMatchMatchXLeagueDTO;
 import org.example.gekobetv1.dtos.QueryMatchPartidosXTemporadaDTO;
 import org.example.gekobetv1.entities.Match;
@@ -55,7 +56,19 @@ public class MatchController {
         }
         return dtoLista;
     }
-    //0
+    @GetMapping("/Equipos_Temporada/{anio_ingresada}")
+    public List<QueryMatchEquipoXTempDTO> PartidosLiga(@PathVariable("anio_ingresada") int anio_ingresada){
+        List<String[]> filaLista= mS.EquiposxTempo(anio_ingresada);
+        List<QueryMatchEquipoXTempDTO> dtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            QueryMatchEquipoXTempDTO dto = new QueryMatchEquipoXTempDTO();
+            dto.setNameteam(columna[0]);
+            dto.setYear(Integer.parseInt(columna[1]));
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
+
     @PutMapping
     public void Editar(@RequestBody MatchDTO mt){
         ModelMapper m=new ModelMapper();
