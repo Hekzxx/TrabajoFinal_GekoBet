@@ -25,6 +25,11 @@ public class TicketServiceImplement implements ITicketService {
     }
 
     @Override
+    public List<String[]> Probabilidadporequipo() {
+        return tR.Probabilidadporequipo();
+    }
+
+    @Override
     public void delete(int id) { tR.deleteById(id); }
 
     @Override
