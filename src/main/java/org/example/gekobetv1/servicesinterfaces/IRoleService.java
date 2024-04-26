@@ -10,5 +10,4 @@ public interface IRoleService {
     public List<Role> list();
     public void delete(int id);
     public Role listId(int id);
-    public List<Role> findByTipo(String tipo);
 }

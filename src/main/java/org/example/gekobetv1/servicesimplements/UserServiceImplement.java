@@ -29,8 +29,4 @@ public class UserServiceImplement implements IUserService{
     public User listId(int id) {
         return uR.findById(id).orElse(new User());
     }
-    @Override
-    public List<User> findByDni(Integer dni) {
-        return uR.findByDni(dni);
-    }
 }

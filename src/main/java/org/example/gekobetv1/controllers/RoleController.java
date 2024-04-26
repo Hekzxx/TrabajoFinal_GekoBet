@@ -47,12 +47,4 @@ public class RoleController {
         RoleDTO dto=m.map(rS.listId(id),RoleDTO.class);
         return dto;
     }
-    @GetMapping("/buscarXtipo")
-    public List<RoleDTO> buscarTipo(@RequestParam String tipo){
-
-        return rS.findByTipo(tipo).stream().map(y->{
-            ModelMapper m=new ModelMapper();
-            return m.map(y,RoleDTO.class);
-        }).collect(Collectors.toList());
-    }
 }

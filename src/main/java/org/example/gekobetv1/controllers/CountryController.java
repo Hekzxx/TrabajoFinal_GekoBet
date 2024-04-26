@@ -49,12 +49,4 @@ public class CountryController {
         return dto;
     }
 
-    @GetMapping("/buscarXpais")
-    public List<CountryDTO> buscarCountry(@RequestParam String country){
-
-        return cS.findByNamecountry(country).stream().map(y->{
-            ModelMapper m=new ModelMapper();
-            return m.map(y,CountryDTO.class);
-        }).collect(Collectors.toList());
-    }
 }
