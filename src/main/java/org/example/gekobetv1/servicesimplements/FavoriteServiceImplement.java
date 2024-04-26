@@ -28,8 +28,5 @@ public class FavoriteServiceImplement implements IFavoriteService {
         return fR.findById(id).orElse(new Favorite());
     }
 
-    @Override
-    public List<String[]> equiposFavoritosXpais(int id_usuario) {
-        return fR.equiposFavoritosXpais(id_usuario);
-    }
+
 }

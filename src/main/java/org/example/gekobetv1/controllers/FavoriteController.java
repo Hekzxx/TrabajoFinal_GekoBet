@@ -33,19 +33,6 @@ public class FavoriteController {
         }).collect(Collectors.toList());
     }
 
-    @GetMapping("/EquiposFavoritosXPais/{id_usuario}")
-    public List<TeamFavoriteXCountryDTO> equiposFavoritosXPais(@PathVariable("id_usuario") int id_usuario){
-        List<String[]> filaLista= fS.equiposFavoritosXpais(id_usuario);
-        List<TeamFavoriteXCountryDTO> dtoLista = new ArrayList<>();
-        for(String[] columna:filaLista){
-                TeamFavoriteXCountryDTO dto = new TeamFavoriteXCountryDTO();
-            dto.setNameteam(columna[0]);
-            dto.setNamecountry(columna[1]);
-            dtoLista.add(dto);
-        }
-        return dtoLista;
-    }
-
     @PutMapping
     public void Editar(@RequestBody FavoriteDTO f){
         ModelMapper m=new ModelMapper();
