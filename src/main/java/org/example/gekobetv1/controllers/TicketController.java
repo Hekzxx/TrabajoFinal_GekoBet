@@ -45,6 +45,18 @@ public class TicketController {
         return dtoLista;
     }
 
+    @GetMapping("/Probabilidad_por_equipo")
+    public List<TicketXTeamDTO> ProbabilidadesPais(){
+        List<String[]> filaLista= tS.Probabilidadporequipo();
+        List<TicketXTeamDTO> dtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            TicketXTeamDTO dto = new TicketXTeamDTO();
+            dto.setProbabilidad_equipo(Integer.parseInt(columna[0]));
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
+
     @PutMapping
     public void Editar(@RequestBody TicketDTO t){
         ModelMapper m=new ModelMapper();
