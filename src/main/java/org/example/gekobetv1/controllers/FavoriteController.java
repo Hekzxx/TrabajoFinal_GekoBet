@@ -60,4 +60,5 @@ public class FavoriteController {
         FavoriteDTO dto=m.map(fS.listId(id),FavoriteDTO.class);
         return dto;
     }
+
 }
