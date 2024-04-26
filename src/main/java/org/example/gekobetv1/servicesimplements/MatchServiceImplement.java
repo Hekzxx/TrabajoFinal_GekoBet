@@ -32,5 +32,10 @@ public class MatchServiceImplement implements IMatchService {
         return mR.cantidadPartidosXTemporada(anio_ingresado);
     }
 
+    @Override
+    public List<String[]> PartidosXLiga(String liga_ingresada) {
+        return mR.PartidosXLiga(liga_ingresada);
+    }
+
 
 }

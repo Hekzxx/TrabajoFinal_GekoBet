@@ -1,5 +1,6 @@
 package org.example.gekobetv1.controllers;
 import org.example.gekobetv1.dtos.MatchDTO;
+import org.example.gekobetv1.dtos.MatchXLeagueDTO;
 import org.example.gekobetv1.dtos.PartidosXTemporadaDTO;
 import org.example.gekobetv1.dtos.UserDTO;
 import org.example.gekobetv1.entities.Match;
@@ -41,6 +42,17 @@ public class MatchController {
             PartidosXTemporadaDTO dto = new PartidosXTemporadaDTO();
             dto.setCantidad_partidos(Integer.parseInt(columna[0]));
 
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
+    @GetMapping("/Partidos_por_liga/{liga_ingresada}")
+    public List<MatchXLeagueDTO> PartidosLiga(@PathVariable("liga_ingresada") String liga_ingresada){
+        List<String[]> filaLista= mS.PartidosXLiga(liga_ingresada);
+        List<MatchXLeagueDTO> dtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            MatchXLeagueDTO dto = new MatchXLeagueDTO();
+            dto.setCantidad_partidos_jugados(Integer.parseInt(columna[0]));
             dtoLista.add(dto);
         }
         return dtoLista;

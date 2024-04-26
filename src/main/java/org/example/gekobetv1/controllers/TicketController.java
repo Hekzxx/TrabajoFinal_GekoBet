@@ -1,5 +1,6 @@
 package org.example.gekobetv1.controllers;
 import org.example.gekobetv1.dtos.TicketDTO;
+import org.example.gekobetv1.dtos.TicketXTeamDTO;
 import org.example.gekobetv1.dtos.TicketsXPaisDTO;
 import org.example.gekobetv1.entities.Ticket;
 import org.example.gekobetv1.servicesinterfaces.ITicketService;
@@ -39,6 +40,19 @@ public class TicketController {
         for(String[] columna:filaLista){
             TicketsXPaisDTO dto = new TicketsXPaisDTO();
             dto.setCantidad_tickets(Integer.parseInt(columna[0]));
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
+
+    @GetMapping("/Probabilidad_por_equipo")
+    public List<TicketXTeamDTO> ProbabilidadesPais(){
+        List<String[]> filaLista= tS.Probabilidadporequipo();
+        List<TicketXTeamDTO> dtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            TicketXTeamDTO dto = new TicketXTeamDTO();
+            dto.setNombre_equipo(columna[0]);
+            dto.setPromedio_probabilidad(Float.parseFloat(columna[1]));
             dtoLista.add(dto);
         }
         return dtoLista;
