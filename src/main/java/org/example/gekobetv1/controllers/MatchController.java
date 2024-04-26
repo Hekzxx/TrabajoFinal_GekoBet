@@ -57,6 +57,7 @@ public class MatchController {
         }
         return dtoLista;
     }
+    //0
     @PutMapping
     public void Editar(@RequestBody MatchDTO mt){
         ModelMapper m=new ModelMapper();
