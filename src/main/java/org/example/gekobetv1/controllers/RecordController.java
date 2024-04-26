@@ -1,14 +1,13 @@
 package org.example.gekobetv1.controllers;
-import org.example.gekobetv1.dtos.UserDTO;
+import org.example.gekobetv1.dtos.*;
 import org.example.gekobetv1.entities.Record;
-import org.example.gekobetv1.dtos.MatchDTO;
-import org.example.gekobetv1.dtos.RecordDTO;
 import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.IRecordService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,6 +28,18 @@ public class RecordController {
             ModelMapper m=new ModelMapper();
             return m.map(y,RecordDTO.class);
         }).collect(Collectors.toList());
+    }
+    @GetMapping("/Victorias_Equipo_Favorito/{id_usuario}")
+    public List<QueryRecordVictoriasEquipoFavDTO> victorias_equipo_fav(@PathVariable("id_usuario") int id_usuario){
+        List<String[]> filaLista= rS.cantVictoriasEquipoFavorito(id_usuario);
+        List<QueryRecordVictoriasEquipoFavDTO> dtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            QueryRecordVictoriasEquipoFavDTO dto = new QueryRecordVictoriasEquipoFavDTO();
+            dto.setNameteam(columna[0]);
+            dto.setResultado(Integer.parseInt(columna[1]));
+            dtoLista.add(dto);
+        }
+        return dtoLista;
     }
     @PutMapping
     public void Editar(@RequestBody RecordDTO r){
