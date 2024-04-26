@@ -1,10 +1,8 @@
 package org.example.gekobetv1.controllers;
 import org.example.gekobetv1.dtos.MatchDTO;
-import org.example.gekobetv1.dtos.MatchXLeagueDTO;
-import org.example.gekobetv1.dtos.PartidosXTemporadaDTO;
-import org.example.gekobetv1.dtos.UserDTO;
+import org.example.gekobetv1.dtos.QueryMatchMatchXLeagueDTO;
+import org.example.gekobetv1.dtos.QueryMatchPartidosXTemporadaDTO;
 import org.example.gekobetv1.entities.Match;
-import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.IMatchService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,11 +33,11 @@ public class MatchController {
     }
     @GetMapping("/Partidos_por_temporada/{anio_ingresado}")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public List<PartidosXTemporadaDTO> cantidadPartidosTemporada(@PathVariable("anio_ingresado") int anio_ingresado){
+    public List<QueryMatchPartidosXTemporadaDTO> cantidadPartidosTemporada(@PathVariable("anio_ingresado") int anio_ingresado){
         List<String[]> filaLista= mS.cantidadPartidosXTemporada(anio_ingresado);
-        List<PartidosXTemporadaDTO> dtoLista = new ArrayList<>();
+        List<QueryMatchPartidosXTemporadaDTO> dtoLista = new ArrayList<>();
         for(String[] columna:filaLista){
-            PartidosXTemporadaDTO dto = new PartidosXTemporadaDTO();
+            QueryMatchPartidosXTemporadaDTO dto = new QueryMatchPartidosXTemporadaDTO();
             dto.setCantidad_partidos(Integer.parseInt(columna[0]));
 
             dtoLista.add(dto);
@@ -47,11 +45,11 @@ public class MatchController {
         return dtoLista;
     }
     @GetMapping("/Partidos_por_liga/{liga_ingresada}")
-    public List<MatchXLeagueDTO> PartidosLiga(@PathVariable("liga_ingresada") String liga_ingresada){
+    public List<QueryMatchMatchXLeagueDTO> PartidosLiga(@PathVariable("liga_ingresada") String liga_ingresada){
         List<String[]> filaLista= mS.PartidosXLiga(liga_ingresada);
-        List<MatchXLeagueDTO> dtoLista = new ArrayList<>();
+        List<QueryMatchMatchXLeagueDTO> dtoLista = new ArrayList<>();
         for(String[] columna:filaLista){
-            MatchXLeagueDTO dto = new MatchXLeagueDTO();
+            QueryMatchMatchXLeagueDTO dto = new QueryMatchMatchXLeagueDTO();
             dto.setCantidad_partidos_jugados(Integer.parseInt(columna[0]));
             dtoLista.add(dto);
         }
