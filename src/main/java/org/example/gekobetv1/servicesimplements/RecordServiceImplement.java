@@ -19,10 +19,7 @@ public class RecordServiceImplement implements IRecordService {
     @Override
     public List<Record> list() { return rR.findAll(); }
 
-    @Override
-    public List<String[]> cantVictoriasEquipoFavorito(int id_usuario) {
-        return rR.cantVictoriasEquipoFavorito(id_usuario);
-    }
+    
 
     @Override
     public void delete(int id) { rR.deleteById(id); }
