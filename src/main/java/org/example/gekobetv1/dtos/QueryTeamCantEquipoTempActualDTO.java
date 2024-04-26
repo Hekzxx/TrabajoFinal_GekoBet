@@ -1,6 +1,6 @@
 package org.example.gekobetv1.dtos;
 
-public class CantEquipoTempActualDTO {
+public class QueryTeamCantEquipoTempActualDTO {
 
     private int cantidad_equipo_temporada;
 

@@ -1,6 +1,6 @@
 package org.example.gekobetv1.dtos;
 
-public class PartidosXTemporadaDTO {
+public class QueryMatchPartidosXTemporadaDTO {
     private int cantidad_partidos;
 
     public int getCantidad_partidos() {

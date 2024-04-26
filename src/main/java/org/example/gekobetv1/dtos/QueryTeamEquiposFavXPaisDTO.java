@@ -1,6 +1,6 @@
 package org.example.gekobetv1.dtos;
 
-public class EquiposFavXPaisDTO {
+public class QueryTeamEquiposFavXPaisDTO {
     private int id;
     private int id_ligue;
     private String nameteam;

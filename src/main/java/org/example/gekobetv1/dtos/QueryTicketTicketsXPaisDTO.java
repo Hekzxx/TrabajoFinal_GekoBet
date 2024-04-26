@@ -1,6 +1,6 @@
 package org.example.gekobetv1.dtos;
 
-public class TicketsXPaisDTO {
+public class QueryTicketTicketsXPaisDTO {
     private int cantidad_tickets;
 
     public int getCantidad_tickets() {

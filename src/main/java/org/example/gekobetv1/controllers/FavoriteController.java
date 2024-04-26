@@ -1,14 +1,10 @@
 package org.example.gekobetv1.controllers;
 
 import org.example.gekobetv1.dtos.*;
-import org.example.gekobetv1.entities.Country;
 import org.example.gekobetv1.entities.Favorite;
-import org.example.gekobetv1.entities.Team;
-import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.IFavoriteService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -34,11 +30,11 @@ public class FavoriteController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/Equipos_favoritos/{id_usuario}")
-    public List<EquiposFavoritosDTO> equiposFavoritos(@PathVariable("id_usuario") String id_usuario){
+    public List<QueryFavoriteEquiposFavoritosDTO> equiposFavoritos(@PathVariable("id_usuario") String id_usuario){
         List<String[]> filaLista= fS.listaEquipoFavorito(Integer.parseInt(id_usuario));
-        List<EquiposFavoritosDTO> dtoLista = new ArrayList<>();
+        List<QueryFavoriteEquiposFavoritosDTO> dtoLista = new ArrayList<>();
         for(String[] columna:filaLista){
-            EquiposFavoritosDTO dto = new EquiposFavoritosDTO();
+            QueryFavoriteEquiposFavoritosDTO dto = new QueryFavoriteEquiposFavoritosDTO();
             dto.setNameteam(columna[0]);
             dto.setNameligue(columna[1]);
             dto.setYear(Integer.parseInt(columna[2]));

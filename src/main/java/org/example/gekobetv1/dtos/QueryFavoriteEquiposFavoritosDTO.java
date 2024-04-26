@@ -1,6 +1,6 @@
 package org.example.gekobetv1.dtos;
 
-public class EquiposFavoritosDTO {
+public class QueryFavoriteEquiposFavoritosDTO {
     private String nameteam;
     private String nameligue;
     private int year;

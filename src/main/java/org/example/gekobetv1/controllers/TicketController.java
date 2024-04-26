@@ -1,7 +1,7 @@
 package org.example.gekobetv1.controllers;
 import org.example.gekobetv1.dtos.TicketDTO;
-import org.example.gekobetv1.dtos.TicketXTeamDTO;
-import org.example.gekobetv1.dtos.TicketsXPaisDTO;
+import org.example.gekobetv1.dtos.QueryTicketTicketXTeamDTO;
+import org.example.gekobetv1.dtos.QueryTicketTicketsXPaisDTO;
 import org.example.gekobetv1.entities.Ticket;
 import org.example.gekobetv1.servicesinterfaces.ITicketService;
 import org.modelmapper.ModelMapper;
@@ -34,11 +34,11 @@ public class TicketController {
 
     @GetMapping("/Tickets_por_pais/{pais_ingresado}")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public List<TicketsXPaisDTO> cantidadTicketsPais(@PathVariable("pais_ingresado") String pais_ingresado){
+    public List<QueryTicketTicketsXPaisDTO> cantidadTicketsPais(@PathVariable("pais_ingresado") String pais_ingresado){
         List<String[]> filaLista= tS.cantidadTicketsXPais(pais_ingresado);
-        List<TicketsXPaisDTO> dtoLista = new ArrayList<>();
+        List<QueryTicketTicketsXPaisDTO> dtoLista = new ArrayList<>();
         for(String[] columna:filaLista){
-            TicketsXPaisDTO dto = new TicketsXPaisDTO();
+            QueryTicketTicketsXPaisDTO dto = new QueryTicketTicketsXPaisDTO();
             dto.setCantidad_tickets(Integer.parseInt(columna[0]));
             dtoLista.add(dto);
         }
@@ -46,11 +46,11 @@ public class TicketController {
     }
 
     @GetMapping("/Probabilidad_por_equipo")
-    public List<TicketXTeamDTO> ProbabilidadesPais(){
+    public List<QueryTicketTicketXTeamDTO> ProbabilidadesPais(){
         List<String[]> filaLista= tS.Probabilidadporequipo();
-        List<TicketXTeamDTO> dtoLista = new ArrayList<>();
+        List<QueryTicketTicketXTeamDTO> dtoLista = new ArrayList<>();
         for(String[] columna:filaLista){
-            TicketXTeamDTO dto = new TicketXTeamDTO();
+            QueryTicketTicketXTeamDTO dto = new QueryTicketTicketXTeamDTO();
             dto.setNombre_equipo(columna[0]);
             dto.setPromedio_probabilidad(Float.parseFloat(columna[1]));
             dtoLista.add(dto);

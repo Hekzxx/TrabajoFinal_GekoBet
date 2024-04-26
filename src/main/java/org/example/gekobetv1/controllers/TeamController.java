@@ -2,11 +2,9 @@ package org.example.gekobetv1.controllers;
 
 import org.example.gekobetv1.dtos.*;
 import org.example.gekobetv1.entities.Team;
-import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.ITeamService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -32,11 +30,11 @@ public class TeamController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/Equipos_Temporada_Actual")
-    public List<CantEquipoTempActualDTO> equipos_temporada_actual(){
+    public List<QueryTeamCantEquipoTempActualDTO> equipos_temporada_actual(){
         List<String[]> filaLista= tS.cantEquipoTemporadaActual();
-        List<CantEquipoTempActualDTO> dtoLista = new ArrayList<>();
+        List<QueryTeamCantEquipoTempActualDTO> dtoLista = new ArrayList<>();
         for(String[] columna:filaLista){
-            CantEquipoTempActualDTO dto = new CantEquipoTempActualDTO();
+            QueryTeamCantEquipoTempActualDTO dto = new QueryTeamCantEquipoTempActualDTO();
             dto.setCantidad_equipo_temporada(Integer.parseInt(columna[0]));
             dtoLista.add(dto);
         }
@@ -44,12 +42,12 @@ public class TeamController {
     }
 
     @GetMapping("/Equipos_Favoritos_X_Pais/{pais_ingresado}/{id_usuario}")
-    public List<EquiposFavXPaisDTO> equipos_favoritos_pais(@PathVariable("pais_ingresado") String pais_ingresado,
-                                                           @PathVariable("id_usuario") int id_usuario){
+    public List<QueryTeamEquiposFavXPaisDTO> equipos_favoritos_pais(@PathVariable("pais_ingresado") String pais_ingresado,
+                                                                    @PathVariable("id_usuario") int id_usuario){
         List<String[]> filaLista= tS.listaEquipoFavoritoXPais(pais_ingresado,id_usuario);
-        List<EquiposFavXPaisDTO> dtoLista = new ArrayList<>();
+        List<QueryTeamEquiposFavXPaisDTO> dtoLista = new ArrayList<>();
         for(String[] columna:filaLista){
-            EquiposFavXPaisDTO dto = new EquiposFavXPaisDTO();
+            QueryTeamEquiposFavXPaisDTO dto = new QueryTeamEquiposFavXPaisDTO();
             dto.setId(Integer.parseInt(columna[0]));
             dto.setId_ligue(Integer.parseInt(columna[1]));
             dto.setNameteam(columna[2]);

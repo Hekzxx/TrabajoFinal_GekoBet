@@ -1,6 +1,6 @@
 package org.example.gekobetv1.dtos;
 
-public class TicketXTeamDTO {
+public class QueryTicketTicketXTeamDTO {
     private String nombre_equipo;
     private  float promedio_probabilidad;
 
