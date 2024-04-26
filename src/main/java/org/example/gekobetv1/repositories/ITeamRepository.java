@@ -10,10 +10,10 @@ import java.util.List;
 @Repository
 public interface ITeamRepository extends JpaRepository<Team, Integer> {
 
-    @Query(value = "select count (distinct t.id) as cantidad_equipo_temporada\n" +
-            "from team t\n" +
-            "inner join ligue l on l.id = t.id_ligue\n" +
-            "inner join season s on s.id = l.id_season\n" +
+    @Query(value = "select count (distinct t.id) as cantidad_equipo_temporada \n" +
+            "from team t \n" +
+            "inner join ligue l on l.id = t.id_ligue \n" +
+            "inner join season s on s.id = l.id_season \n" +
             "where s.year = 2024", nativeQuery = true)
     public List<String[]> cantEquipoTemporadaActual();
     @Query(value = "select distinct t.* from team t \n" +

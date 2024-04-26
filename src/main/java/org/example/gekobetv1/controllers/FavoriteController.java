@@ -8,6 +8,7 @@ import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.IFavoriteService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -31,6 +32,20 @@ public class FavoriteController {
             ModelMapper m=new ModelMapper();
             return m.map(y,FavoriteDTO.class);
         }).collect(Collectors.toList());
+    }
+    @GetMapping("/Equipos_favoritos/{id_usuario}")
+    public List<EquiposFavoritosDTO> equiposFavoritos(@PathVariable("id_usuario") String id_usuario){
+        List<String[]> filaLista= fS.listaEquipoFavorito(Integer.parseInt(id_usuario));
+        List<EquiposFavoritosDTO> dtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            EquiposFavoritosDTO dto = new EquiposFavoritosDTO();
+            dto.setNameteam(columna[0]);
+            dto.setNameligue(columna[1]);
+            dto.setYear(Integer.parseInt(columna[2]));
+            dto.setNamecountry(columna[3]);
+            dtoLista.add(dto);
+        }
+        return dtoLista;
     }
 
     @PutMapping

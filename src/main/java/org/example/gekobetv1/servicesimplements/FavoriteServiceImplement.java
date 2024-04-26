@@ -21,6 +21,11 @@ public class FavoriteServiceImplement implements IFavoriteService {
     public List<Favorite> list() { return fR.findAll(); }
 
     @Override
+    public List<String[]> listaEquipoFavorito(int id_usuario) {
+        return fR.listaEquipoFavorito(id_usuario);
+    }
+
+    @Override
     public void delete(int id) { fR.deleteById(id); }
 
     @Override
