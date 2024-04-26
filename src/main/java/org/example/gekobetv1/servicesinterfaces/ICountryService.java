@@ -7,5 +7,4 @@ public interface ICountryService {
     public List<Country> list();
     public void delete(int id);
     public Country listId(int id);
-    public List<Country> findByNamecountry(String country);
 }

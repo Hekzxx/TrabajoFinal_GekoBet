@@ -39,7 +39,7 @@ public class MatchController {
         List<PartidosXTemporadaDTO> dtoLista = new ArrayList<>();
         for(String[] columna:filaLista){
             PartidosXTemporadaDTO dto = new PartidosXTemporadaDTO();
-            dto.setTotal_partidos(Integer.parseInt(columna[0]));
+            dto.setCantidad_partidos(Integer.parseInt(columna[0]));
 
             dtoLista.add(dto);
         }

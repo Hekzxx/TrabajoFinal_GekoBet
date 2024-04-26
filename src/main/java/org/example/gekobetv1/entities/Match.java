@@ -15,18 +15,14 @@ public class Match {
     @Column(name = "versus",nullable = false,length = 40)
     private  String versus;
 
-    @ManyToOne
-    @JoinColumn(name = "idTicket")
-    private Ticket ticket;
 
     public Match() {
     }
 
-    public Match(int id, LocalDate dateMatch, String versus, Ticket ticket) {
+    public Match(int id, LocalDate dateMatch, String versus) {
         this.id = id;
         this.dateMatch = dateMatch;
         this.versus = versus;
-        this.ticket = ticket;
     }
 
     public int getId() {
@@ -51,13 +47,5 @@ public class Match {
 
     public void setVersus(String versus) {
         this.versus = versus;
-    }
-
-    public Ticket getTicket() {
-        return ticket;
-    }
-
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
     }
 }

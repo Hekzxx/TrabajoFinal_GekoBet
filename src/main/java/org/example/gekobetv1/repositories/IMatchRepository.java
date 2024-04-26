@@ -9,11 +9,12 @@ import java.util.List;
 
 @Repository
 public interface IMatchRepository extends JpaRepository<Match,Integer> {
-    @Query(value = "Select count (*) as total_partidos \n" +
-            "from Match m \n" +
-            "INNER JOIN Team t ON t.id_match = m.id \n" +
-            "INNER JOIN Ligue l ON t.id_ligue = l.id \n" +
-            "INNER JOIN Season s ON l.id_season = s.id \n" +
-            "WHERE s.year = :anio_ingresado", nativeQuery = true)
+    @Query(value = "select count (Distinct m.id) as cantidad_partidos \n" +
+            "from match m \n" +
+            "inner join teamsxmatches tm on m.id = tm.id_match \n" +
+            "inner join team t on t.id = tm.id_team \n" +
+            "inner join ligue l on l.id = t.id_ligue \n" +
+            "inner join season s on s.id = l.id_season \n" +
+            "where s.year = :anio_ingresado", nativeQuery = true)
     public List<String[]> cantidadPartidosXTemporada(int anio_ingresado);
 }

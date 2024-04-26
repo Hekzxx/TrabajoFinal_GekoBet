@@ -38,7 +38,7 @@ public class TicketController {
         List<TicketsXPaisDTO> dtoLista = new ArrayList<>();
         for(String[] columna:filaLista){
             TicketsXPaisDTO dto = new TicketsXPaisDTO();
-            dto.setTotal_tickets(Integer.parseInt(columna[0]));
+            dto.setCantidad_tickets(Integer.parseInt(columna[0]));
             dtoLista.add(dto);
         }
         return dtoLista;

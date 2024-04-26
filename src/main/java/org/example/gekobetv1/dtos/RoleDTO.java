@@ -1,5 +1,4 @@
 package org.example.gekobetv1.dtos;
-import org.example.gekobetv1.entities.User;
 
 public class RoleDTO {
     private int id;

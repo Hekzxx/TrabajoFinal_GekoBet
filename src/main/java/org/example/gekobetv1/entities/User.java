@@ -27,7 +27,7 @@ public class User implements Serializable {
     private Integer dni;
     private Boolean enabled;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "idUser")
     private List<Role> roles;
 
     public User() {

@@ -6,6 +6,6 @@ import org.example.gekobetv1.entities.Country;
 import java.util.List;
 @Repository
 public interface ICountryRepository extends JpaRepository<Country,Integer>{
-    public List<Country> findByNamecountry(String country);
+
 }
 

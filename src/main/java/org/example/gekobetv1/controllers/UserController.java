@@ -46,12 +46,4 @@ public class UserController {
         UserDTO dto=m.map(uS.listId(id),UserDTO.class);
         return dto;
     }
-    @GetMapping("/buscarXdni")
-    public List<UserDTO> buscarDni(@RequestParam Integer dni){
-
-        return uS.findByDni(dni).stream().map(y->{
-            ModelMapper m=new ModelMapper();
-            return m.map(y,UserDTO.class);
-        }).collect(Collectors.toList());
-    }
 }

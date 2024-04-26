@@ -15,18 +15,14 @@ public class Team {
     @ManyToOne
     @JoinColumn(name = "idLigue")
     private Ligue ligue;
-    @ManyToOne
-    @JoinColumn(name = "idMatch")
-    private Match match;
 
     public Team() {
     }
 
-    public Team(int id, String nameteam, Ligue ligue, Match match) {
+    public Team(int id, String nameteam, Ligue ligue) {
         this.id = id;
         this.nameteam = nameteam;
         this.ligue = ligue;
-        this.match = match;
     }
 
     public int getId() {
@@ -51,13 +47,5 @@ public class Team {
 
     public void setLigue(Ligue ligue) {
         this.ligue = ligue;
-    }
-
-    public Match getMatch() {
-        return match;
-    }
-
-    public void setMatch(Match match) {
-        this.match = match;
     }
 }

@@ -2,6 +2,8 @@ package org.example.gekobetv1.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Random;
+
 @Entity
 @Table(name = "Ticket")
 public class Ticket {
@@ -18,14 +20,20 @@ public class Ticket {
     @JoinColumn(name = "idUser")
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "idMatch")
+    private Match match;
+
     public Ticket() {
+
     }
 
-    public Ticket(int id, Float probabilidad, String equipoGanador, User user) {
+    public Ticket(int id, Float probabilidad, String equipoGanador, User user, Match match) {
         this.id = id;
         this.probabilidad = probabilidad;
         this.equipoGanador = equipoGanador;
         this.user = user;
+        this.match = match;
     }
 
     public int getId() {
@@ -58,5 +66,13 @@ public class Ticket {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Match getMatch() {
+        return match;
+    }
+
+    public void setMatch(Match match) {
+        this.match = match;
     }
 }

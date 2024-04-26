@@ -1,11 +1,8 @@
 package org.example.gekobetv1.repositories;
-
-import org.example.gekobetv1.entities.Role;
+import org.example.gekobetv1.entities.TeamXMatch;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
-
 @Repository
-public interface IRoleRepository extends JpaRepository<Role,Integer> {
+public interface ITeamXMatchRepository extends JpaRepository<TeamXMatch,Integer> {
 }
