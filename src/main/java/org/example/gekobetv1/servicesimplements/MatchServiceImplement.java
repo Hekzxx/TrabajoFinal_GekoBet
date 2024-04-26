@@ -37,5 +37,10 @@ public class MatchServiceImplement implements IMatchService {
         return mR.PartidosXLiga(liga_ingresada);
     }
 
+    @Override
+    public List<String[]> EquiposxTempo(int anio_ingresada) {
+        return mR.EquiposxTempo(anio_ingresada);
+    }
+
 
 }

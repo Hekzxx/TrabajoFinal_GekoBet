@@ -24,4 +24,12 @@ public interface IMatchRepository extends JpaRepository<Match,Integer> {
             "inner join ligue l on l.id = t.id_ligue \n" +
             "where l.nameligue = :liga_ingresada ", nativeQuery = true)
     public List<String[]> PartidosXLiga(String liga_ingresada);
+
+    @Query(value = "select t.nameteam, s.year from match m \n" +
+            "inner join teamsxmatches tm on tm.id_match = m.id \n" +
+            "inner join team t on t.id = tm.id_team \n" +
+            "inner join ligue l on l.id = t.id_ligue \n" +
+            "inner join season s on s.id = l.id_season \n" +
+            "where s.year = :anio_ingresada", nativeQuery = true)
+    public List<String[]> EquiposxTempo(int anio_ingresada);
 }

@@ -11,4 +11,6 @@ public interface IMatchService {
     public Match listId(int id);
     public List<String[]> cantidadPartidosXTemporada(int anio_ingresado);
     public List<String[]> PartidosXLiga(String liga_ingresada);
+
+    public List<String[]> EquiposxTempo(int anio_ingresada);
 }
