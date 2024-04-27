@@ -54,10 +54,5 @@ public class FavoriteController {
     public void eliminar(@PathVariable("id") Integer id){
         fS.delete(id);
     }
-    @GetMapping("/{id}")
-    public FavoriteDTO listarId(@PathVariable("id") Integer id){
-        ModelMapper m= new ModelMapper();
-        FavoriteDTO dto=m.map(fS.listId(id),FavoriteDTO.class);
-        return dto;
-    }
+
 }

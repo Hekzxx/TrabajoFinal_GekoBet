@@ -58,10 +58,5 @@ public class LigueController {
     public void eliminar(@PathVariable("id") Integer id){
         lS.delete(id);
     }
-    @GetMapping("/{id}")
-    public LigueDTO listarId(@PathVariable("id") Integer id){
-        ModelMapper m= new ModelMapper();
-        LigueDTO dto=m.map(lS.listId(id),LigueDTO.class);
-        return dto;
-    }
+
 }
