@@ -7,6 +7,7 @@ import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.IRoleService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/roles")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class RoleController {
     @Autowired
     private IRoleService rS;

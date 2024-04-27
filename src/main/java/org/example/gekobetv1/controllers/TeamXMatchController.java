@@ -9,6 +9,7 @@ import org.example.gekobetv1.entities.TeamXMatch;
 import org.example.gekobetv1.servicesinterfaces.ITeamXMatchService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/teamsxmatches")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class TeamXMatchController {
     @Autowired
     private ITeamXMatchService tmS;

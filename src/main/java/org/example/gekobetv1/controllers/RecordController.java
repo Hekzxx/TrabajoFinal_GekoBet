@@ -5,6 +5,7 @@ import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.IRecordService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -17,12 +18,14 @@ public class RecordController {
     @Autowired
     private IRecordService rS;
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void registrar(@RequestBody RecordDTO r){
         ModelMapper m=new ModelMapper();
         Record re = m.map(r, Record.class);
         rS.insert(re);
     }
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<RecordDTO> list(){
         return rS.list().stream().map(y->{
             ModelMapper m=new ModelMapper();
@@ -30,6 +33,7 @@ public class RecordController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/Victorias_Equipo_Favorito/{id_usuario}")
+    @PreAuthorize("hasAuthority('USER')")
     public List<QueryRecordVictoriasEquipoFavDTO> victorias_equipo_fav(@PathVariable("id_usuario") int id_usuario){
         List<String[]> filaLista= rS.cantVictoriasEquipoFavorito(id_usuario);
         List<QueryRecordVictoriasEquipoFavDTO> dtoLista = new ArrayList<>();
@@ -42,12 +46,14 @@ public class RecordController {
         return dtoLista;
     }
     @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void Editar(@RequestBody RecordDTO r){
         ModelMapper m=new ModelMapper();
         Record re = m.map(r,Record.class);
         rS.insert(re);
     }
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void eliminar(@PathVariable("id") Integer id){
         rS.delete(id);
     }

@@ -4,6 +4,7 @@ import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.IUserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public class UserController {
     @Autowired
     private IUserService uS;
     @PostMapping
+    @PreAuthorize("hasAuthority('USER')")
     public void registrar(@RequestBody UserDTO u){
         ModelMapper m=new ModelMapper();
         User us = m.map(u,User.class);
@@ -21,6 +23,7 @@ public class UserController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<UserDTO> list(){
 
         return uS.list().stream().map(y->{
@@ -30,6 +33,7 @@ public class UserController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public void Editar(@RequestBody UserDTO u){
         ModelMapper m=new ModelMapper();
         User us = m.map(u,User.class);
@@ -37,6 +41,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public void eliminar(@PathVariable("id") Integer id){
         uS.delete(id);
     }
