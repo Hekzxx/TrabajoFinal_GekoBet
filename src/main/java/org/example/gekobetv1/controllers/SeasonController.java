@@ -39,10 +39,4 @@ public class SeasonController {
     public void eliminar(@PathVariable("id") Integer id){
         sS.delete(id);
     }
-    @GetMapping("/{id}")
-    public SeasonDTO listarId(@PathVariable("id") Integer id){
-        ModelMapper m= new ModelMapper();
-        SeasonDTO dto=m.map(sS.listId(id),SeasonDTO.class);
-        return dto;
-    }
 }

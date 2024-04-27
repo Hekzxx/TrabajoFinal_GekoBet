@@ -42,10 +42,5 @@ public class TeamXMatchController {
     public void eliminar(@PathVariable("id") Integer id){
         tmS.delete(id);
     }
-    @GetMapping("/{id}")
-    public TeamXMatchDTO listarId(@PathVariable("id") Integer id){
-        ModelMapper m= new ModelMapper();
-        TeamXMatchDTO dto=m.map(tmS.listId(id),TeamXMatchDTO.class);
-        return dto;
-    }
+
 }

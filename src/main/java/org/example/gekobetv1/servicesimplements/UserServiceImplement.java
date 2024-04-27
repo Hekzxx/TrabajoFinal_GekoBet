@@ -25,8 +25,5 @@ public class UserServiceImplement implements IUserService{
         uR.deleteById(id);
     }
 
-    @Override
-    public User listId(int id) {
-        return uR.findById(id).orElse(new User());
-    }
+
 }

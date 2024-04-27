@@ -42,11 +42,5 @@ public class CountryController {
     public void eliminar(@PathVariable("id") Integer id){
         cS.delete(id);
     }
-    @GetMapping("/{id}")
-    public CountryDTO listarId(@PathVariable("id") Integer id){
-        ModelMapper m= new ModelMapper();
-        CountryDTO dto=m.map(cS.listId(id),CountryDTO.class);
-        return dto;
-    }
 
 }

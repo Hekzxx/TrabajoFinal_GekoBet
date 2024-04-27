@@ -6,5 +6,4 @@ public interface IUserService {
     public void insert(User user);
     public List<User> list();
     public void delete(int id);
-    public User listId(int id);
 }

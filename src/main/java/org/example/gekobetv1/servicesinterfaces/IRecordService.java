@@ -9,5 +9,4 @@ public interface IRecordService {
     public List<Record> list();
     public List<String[]> cantVictoriasEquipoFavorito(int id_usuario);
     public void delete(int id);
-    public Record listId(int id);
 }
