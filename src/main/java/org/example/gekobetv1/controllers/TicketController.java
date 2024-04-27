@@ -33,7 +33,6 @@ public class TicketController {
     }
 
     @GetMapping("/Tickets_por_pais/{pais_ingresado}")
-    @PreAuthorize("hasAuthority('ADMIN')")
     public List<QueryTicketTicketsXPaisDTO> cantidadTicketsPais(@PathVariable("pais_ingresado") String pais_ingresado){
         List<String[]> filaLista= tS.cantidadTicketsXPais(pais_ingresado);
         List<QueryTicketTicketsXPaisDTO> dtoLista = new ArrayList<>();
