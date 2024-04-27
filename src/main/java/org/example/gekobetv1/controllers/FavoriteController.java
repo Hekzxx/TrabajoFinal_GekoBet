@@ -5,6 +5,7 @@ import org.example.gekobetv1.entities.Favorite;
 import org.example.gekobetv1.servicesinterfaces.IFavoriteService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/favorities")
+@PreAuthorize("hasAuthority('USER')")
 public class FavoriteController {
     @Autowired
     private IFavoriteService fS;
