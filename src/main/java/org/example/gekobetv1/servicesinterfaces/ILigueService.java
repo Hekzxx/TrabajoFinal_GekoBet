@@ -9,5 +9,4 @@ public interface ILigueService {
     public List<Ligue> list();
     public List<String[]> listaLigasxSeasonCountry(int anio_ingresado, String pais_ingresado);
     public void delete(int id);
-    public Ligue listId(int id);
 }

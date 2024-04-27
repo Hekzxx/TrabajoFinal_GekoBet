@@ -10,5 +10,4 @@ public interface ITeamService {
     public List<String[]> cantEquipoTemporadaActual();
     public List<String[]> listaEquipoFavoritoXPais(String pais_ingresado, int id_usuario);
     public void delete(int id);
-    public Team listId(int id);
 }

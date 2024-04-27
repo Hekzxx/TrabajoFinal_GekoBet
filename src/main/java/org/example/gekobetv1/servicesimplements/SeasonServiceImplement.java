@@ -22,8 +22,4 @@ public class SeasonServiceImplement implements ISeasonService {
     @Override
     public void delete(int id) { sR.deleteById(id); }
 
-    @Override
-    public Season listId(int id) {
-        return sR.findById(id).orElse(new Season());
-    }
 }

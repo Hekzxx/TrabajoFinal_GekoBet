@@ -51,10 +51,5 @@ public class RecordController {
     public void eliminar(@PathVariable("id") Integer id){
         rS.delete(id);
     }
-    @GetMapping("/{id}")
-    public RecordDTO listarId(@PathVariable("id") Integer id){
-        ModelMapper m= new ModelMapper();
-        RecordDTO dto=m.map(rS.listId(id),RecordDTO.class);
-        return dto;
-    }
+
 }

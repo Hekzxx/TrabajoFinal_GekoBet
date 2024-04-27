@@ -32,8 +32,5 @@ public class TicketServiceImplement implements ITicketService {
     @Override
     public void delete(int id) { tR.deleteById(id); }
 
-    @Override
-    public Ticket listId(int id) {
-        return tR.findById(id).orElse(new Ticket());
-    }
+
 }

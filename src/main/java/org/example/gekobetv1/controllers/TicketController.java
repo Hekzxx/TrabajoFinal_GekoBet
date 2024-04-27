@@ -67,10 +67,5 @@ public class TicketController {
     public void eliminar(@PathVariable("id") Integer id){
         tS.delete(id);
     }
-    @GetMapping("/{id}")
-    public TicketDTO listarId(@PathVariable("id") Integer id){
-        ModelMapper m= new ModelMapper();
-        TicketDTO dto=m.map(tS.listId(id),TicketDTO.class);
-        return dto;
-    }
+
 }

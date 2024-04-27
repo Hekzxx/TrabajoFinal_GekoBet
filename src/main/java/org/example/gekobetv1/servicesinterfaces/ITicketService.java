@@ -10,5 +10,4 @@ public interface ITicketService {
     public List<String[]> cantidadTicketsXPais(String pais_ingresado);
     public List<String[]> Probabilidadporequipo();
     public void delete(int id);
-    public Ticket listId(int id);
 }

@@ -24,9 +24,4 @@ public class CountryServiceImplement implements ICountryService{
         cR.deleteById(id);
     }
 
-    @Override
-    public Country listId(int id) {
-        return cR.findById(id).orElse(new Country());
-    }
-
 }

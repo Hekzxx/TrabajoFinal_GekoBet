@@ -27,8 +27,4 @@ public class RecordServiceImplement implements IRecordService {
     @Override
     public void delete(int id) { rR.deleteById(id); }
 
-    @Override
-    public Record listId(int id) {
-        return rR.findById(id).orElse(new Record());
-    }
 }

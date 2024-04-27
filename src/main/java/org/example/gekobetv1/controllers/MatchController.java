@@ -79,10 +79,5 @@ public class MatchController {
     public void eliminar(@PathVariable("id") Integer id){
         mS.delete(id);
     }
-    @GetMapping("/{id}")
-    public MatchDTO listarId(@PathVariable("id") Integer id){
-        ModelMapper m= new ModelMapper();
-        MatchDTO dto=m.map(mS.listId(id),MatchDTO.class);
-        return dto;
-    }
+
 }

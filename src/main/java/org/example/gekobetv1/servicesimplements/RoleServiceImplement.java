@@ -23,8 +23,4 @@ public class RoleServiceImplement implements IRoleService {
     @Override
     public void delete(int id) { rR.deleteById(id); }
 
-    @Override
-    public Role listId(int id) {
-        return rR.findById(id).orElse(new Role());
-    }
 }
