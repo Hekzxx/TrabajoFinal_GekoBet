@@ -1,4 +1,4 @@
-FROM openjdk:18
+FROM openjdk:17
 VOLUME /tmp
 EXPOSE 8080
 ARG JAR_FILE=target/gekobetv1-0.0.1-SNAPSHOT.jar
