@@ -21,6 +21,11 @@ public class LigueServiceImplement implements ILigueService {
     public List<Ligue> list() { return lR.findAll(); }
 
     @Override
+    public List<String[]> listaLigasxSeasonCountry(int anio_ingresado, String pais_ingresado) {
+        return lR.listaLigasxSeasonCountry(anio_ingresado,pais_ingresado);
+    }
+
+    @Override
     public void delete(int id) { lR.deleteById(id); }
 
     @Override
