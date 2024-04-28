@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/roles")
-@PreAuthorize("hasAuthority('ADMIN')")
 public class RoleController {
     @Autowired
     private IRoleService rS;
@@ -26,6 +25,7 @@ public class RoleController {
         rS.insert(ro);
     }
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<RoleDTO> list(){
         return rS.list().stream().map(y->{
             ModelMapper m=new ModelMapper();
@@ -34,12 +34,14 @@ public class RoleController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void Editar(@RequestBody RoleDTO r){
         ModelMapper m=new ModelMapper();
         Role ro = m.map(r,Role.class);
         rS.insert(ro);
     }
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void eliminar(@PathVariable("id") Integer id){
         rS.delete(id);
     }
