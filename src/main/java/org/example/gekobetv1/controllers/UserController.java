@@ -15,7 +15,6 @@ public class UserController {
     @Autowired
     private IUserService uS;
     @PostMapping
-    @PreAuthorize("hasAuthority('USER')")
     public void registrar(@RequestBody UserDTO u){
         ModelMapper m=new ModelMapper();
         User us = m.map(u,User.class);
