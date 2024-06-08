@@ -28,4 +28,9 @@ public class LigueServiceImplement implements ILigueService {
     @Override
     public void delete(int id) { lR.deleteById(id); }
 
+    @Override
+    public Ligue listID(int id) {
+        return lR.findById(id).orElse(new Ligue());
+    }
+
 }

@@ -28,6 +28,10 @@ public class FavoriteServiceImplement implements IFavoriteService {
     @Override
     public void delete(int id) { fR.deleteById(id); }
 
+    @Override
+    public Favorite listID(int id) {
+        return fR.findById(id).orElse(new Favorite());
+    }
 
 
 }

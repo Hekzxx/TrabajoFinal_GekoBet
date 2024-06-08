@@ -1,9 +1,6 @@
 package org.example.gekobetv1.controllers;
 
-import org.example.gekobetv1.dtos.LigueDTO;
-import org.example.gekobetv1.dtos.QueryLigueLiguesXSeasonXTempDTO;
-import org.example.gekobetv1.dtos.QueryTeamEquiposFavXPaisDTO;
-import org.example.gekobetv1.dtos.UserDTO;
+import org.example.gekobetv1.dtos.*;
 import org.example.gekobetv1.entities.Ligue;
 import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.ILigueService;
@@ -18,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/ligues")
-@PreAuthorize("hasAuthority('ADMIN')")
+//@PreAuthorize("hasAuthority('ADMIN')")
 public class LigueController {
     @Autowired
     private ILigueService lS;
@@ -59,6 +56,13 @@ public class LigueController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         lS.delete(id);
+    }
+
+    @GetMapping("/{id}")
+    public LigueDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m= new ModelMapper();
+        LigueDTO dto=m.map(lS.listID(id),LigueDTO.class);
+        return dto;
     }
 
 }

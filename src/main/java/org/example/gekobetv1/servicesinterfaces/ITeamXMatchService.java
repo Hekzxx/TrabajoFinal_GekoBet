@@ -8,4 +8,5 @@ public interface ITeamXMatchService {
     public void insert(TeamXMatch teamxmatch);
     public List<TeamXMatch> list();
     public void delete(int id);
+    public TeamXMatch listId(int id);
 }

@@ -1,8 +1,6 @@
 package org.example.gekobetv1.controllers;
 import org.example.gekobetv1.dtos.SeasonDTO;
-import org.example.gekobetv1.dtos.UserDTO;
 import org.example.gekobetv1.entities.Season;
-import org.example.gekobetv1.entities.User;
 import org.example.gekobetv1.servicesinterfaces.ISeasonService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/seasons")
-@PreAuthorize("hasAuthority('ADMIN')")
+//@PreAuthorize("hasAuthority('ADMIN')")
 public class SeasonController {
     @Autowired
     private ISeasonService sS;
@@ -40,5 +38,12 @@ public class SeasonController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         sS.delete(id);
+    }
+
+    @GetMapping("/{id}")
+    public SeasonDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m= new ModelMapper();
+        SeasonDTO dto=m.map(sS.listId(id),SeasonDTO.class);
+        return dto;
     }
 }

@@ -1,8 +1,5 @@
 package org.example.gekobetv1.controllers;
-import org.example.gekobetv1.dtos.MatchDTO;
-import org.example.gekobetv1.dtos.QueryMatchEquipoXTempDTO;
-import org.example.gekobetv1.dtos.QueryMatchMatchXLeagueDTO;
-import org.example.gekobetv1.dtos.QueryMatchPartidosXTemporadaDTO;
+import org.example.gekobetv1.dtos.*;
 import org.example.gekobetv1.entities.Match;
 import org.example.gekobetv1.servicesinterfaces.IMatchService;
 import org.modelmapper.ModelMapper;
@@ -84,6 +81,13 @@ public class MatchController {
     //@PreAuthorize("hasAuthority('ADMIN')")
     public void eliminar(@PathVariable("id") Integer id){
         mS.delete(id);
+    }
+
+    @GetMapping("/{id}")
+    public MatchDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m= new ModelMapper();
+        MatchDTO dto=m.map(mS.listId(id),MatchDTO.class);
+        return dto;
     }
 
 }
