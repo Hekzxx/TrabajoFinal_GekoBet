@@ -19,14 +19,14 @@ public class TicketController {
     @Autowired
     private ITicketService tS;
     @PostMapping
-    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public void registrar(@RequestBody TicketDTO t){
         ModelMapper m=new ModelMapper();
         Ticket ti = m.map(t, Ticket.class);
         tS.insert(ti);
     }
     @GetMapping
-    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
+    //@PreAuthorize("hasAuthority('USER')")
     public List<TicketDTO> list(){
         return tS.list().stream().map(y->{
             ModelMapper m=new ModelMapper();
@@ -35,7 +35,7 @@ public class TicketController {
     }
 
     @GetMapping("/Tickets_por_pais/{pais_ingresado}")
-    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public List<QueryTicketTicketsXPaisDTO> cantidadTicketsPais(@PathVariable("pais_ingresado") String pais_ingresado){
         List<String[]> filaLista= tS.cantidadTicketsXPais(pais_ingresado);
         List<QueryTicketTicketsXPaisDTO> dtoLista = new ArrayList<>();
@@ -48,7 +48,7 @@ public class TicketController {
     }
 
     @GetMapping("/Probabilidad_por_equipo")
-    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public List<QueryTicketTicketXTeamDTO> ProbabilidadesPais(){
         List<String[]> filaLista= tS.Probabilidadporequipo();
         List<QueryTicketTicketXTeamDTO> dtoLista = new ArrayList<>();
@@ -61,20 +61,19 @@ public class TicketController {
         return dtoLista;
     }
     @PutMapping
-    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
+    //@PreAuthorize("hasAuthority('USER')")
     public void Editar(@RequestBody TicketDTO t){
         ModelMapper m=new ModelMapper();
         Ticket ti = m.map(t,Ticket.class);
         tS.insert(ti);
     }
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
+    //@PreAuthorize("hasAuthority('USER')")
     public void eliminar(@PathVariable("id") Integer id){
         tS.delete(id);
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public TicketDTO listarId(@PathVariable("id") Integer id){
         ModelMapper m= new ModelMapper();
         TicketDTO dto=m.map(tS.listId(id),TicketDTO.class);

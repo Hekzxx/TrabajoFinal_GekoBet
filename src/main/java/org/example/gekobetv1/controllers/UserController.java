@@ -22,7 +22,7 @@ public class UserController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public List<UserDTO> list(){
 
         return uS.list().stream().map(y->{
@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @PutMapping
-    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public void Editar(@RequestBody UserDTO u){
         ModelMapper m=new ModelMapper();
         User us = m.map(u,User.class);
@@ -40,13 +40,12 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public void eliminar(@PathVariable("id") Integer id){
         uS.delete(id);
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public UserDTO listarId(@PathVariable("id") Integer id){
         ModelMapper m= new ModelMapper();
         UserDTO dto=m.map(uS.listId(id),UserDTO.class);
