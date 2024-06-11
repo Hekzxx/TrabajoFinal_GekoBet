@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/favorities")
-//@PreAuthorize("hasAuthority('USER')")
+@PreAuthorize("hasAuthority('USER')")
 public class FavoriteController {
     @Autowired
     private IFavoriteService fS;
