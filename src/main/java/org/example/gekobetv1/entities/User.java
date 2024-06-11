@@ -26,13 +26,10 @@ public class User implements Serializable {
     @Column(name = "dni",nullable = false)
     private Integer dni;
     private Boolean enabled;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "idUser")
-    private List<Role> roles;
 
     public User() {
     }
-    public User(int id, String username, String password, String mail, Boolean estado, String address, Integer phone, Integer dni, Boolean enabled, List<Role> roles) {
+    public User(int id, String username, String password, String mail, Boolean estado, String address, Integer phone, Integer dni, Boolean enabled) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -42,7 +39,6 @@ public class User implements Serializable {
         this.phone = phone;
         this.dni = dni;
         this.enabled = enabled;
-        this.roles = roles;
     }
 
     public int getId() {
@@ -115,13 +111,5 @@ public class User implements Serializable {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
-    }
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
     }
 }

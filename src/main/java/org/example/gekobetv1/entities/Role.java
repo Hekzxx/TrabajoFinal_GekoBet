@@ -5,9 +5,9 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Role", uniqueConstraints = {@UniqueConstraint(columnNames = {"idUser", "tipo"})})
+@Table(name = "Role" )
 public class Role implements Serializable {
-    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
