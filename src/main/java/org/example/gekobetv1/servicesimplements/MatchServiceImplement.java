@@ -1,5 +1,6 @@
 package org.example.gekobetv1.servicesimplements;
 import org.example.gekobetv1.entities.Match;
+import org.example.gekobetv1.entities.Team;
 import org.example.gekobetv1.repositories.IMatchRepository;
 import org.example.gekobetv1.servicesinterfaces.IMatchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,21 @@ public class MatchServiceImplement implements IMatchService {
     @Override
     public List<String[]> EquiposxTempo(int anio_ingresada) {
         return mR.EquiposxTempo(anio_ingresada);
+    }
+
+    @Override
+    public float ProbabilidadEquipo(int teamrecord, int idmatchingresado) {
+        return mR.ProbabilidadEquipo(teamrecord,idmatchingresado);
+    }
+
+    @Override
+    public float ObtenerGolesdeEquipo(int idteam) {
+        return mR.ObtenerGolesdeEquipo(idteam);
+    }
+
+    @Override
+    public List<String[]> ObtenerEquipoSegunPartido(int idm) {
+        return mR.ObtenerEquipoSegunPartido(idm);
     }
 
 

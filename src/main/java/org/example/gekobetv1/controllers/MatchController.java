@@ -1,10 +1,10 @@
 package org.example.gekobetv1.controllers;
 import org.example.gekobetv1.dtos.*;
 import org.example.gekobetv1.entities.Match;
+import org.example.gekobetv1.entities.Team;
 import org.example.gekobetv1.servicesinterfaces.IMatchService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -65,6 +65,28 @@ public class MatchController {
             QueryMatchEquipoXTempDTO dto = new QueryMatchEquipoXTempDTO();
             dto.setNameteam(columna[0]);
             dto.setYear(Integer.parseInt(columna[1]));
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
+
+    @GetMapping("/ProbabilidadEquipo/{teamrecord}/{idmatchingresado}")
+    public float ProbabilidadEquipo(@PathVariable("teamrecord") int teamrecord,
+                                    @PathVariable("idmatchingresado") int idmatchingresado){
+        return mS.ProbabilidadEquipo(teamrecord,idmatchingresado);
+    }
+    @GetMapping("/GolesdeEquipo/{idteam}")
+    public float GolesdeEquipo(@PathVariable("idteam") int idteam){
+        return mS.ObtenerGolesdeEquipo(idteam);
+    }
+
+    @GetMapping("/EquiposSegunPartido/{idm}")
+    public List<QueryMatchObtenerEquipoSegunPartidoDTO> EquiposSegunPartido(@PathVariable("idm") int idm){
+        List<String[]> filaLista= mS.ObtenerEquipoSegunPartido(idm);
+        List<QueryMatchObtenerEquipoSegunPartidoDTO> dtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            QueryMatchObtenerEquipoSegunPartidoDTO dto = new QueryMatchObtenerEquipoSegunPartidoDTO();
+            dto.setNombreEQUIPO(columna[0]);
             dtoLista.add(dto);
         }
         return dtoLista;
