@@ -50,4 +50,7 @@ public interface IMatchRepository extends JpaRepository<Match,Integer> {
             "inner join match m on txm.id_match = m.id \n" +
             "where m.id= :idm ", nativeQuery = true)
     public List<String[]> ObtenerEquipoSegunPartido(int idm);
+
+    @Query(value = "select m.id from match m order by m.id desc limit 1", nativeQuery = true)
+    public int UltimoMatchCreado();
 }

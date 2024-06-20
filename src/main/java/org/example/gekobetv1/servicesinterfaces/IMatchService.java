@@ -16,4 +16,5 @@ public interface IMatchService {
     public float ProbabilidadEquipo(int teamrecord, int idmatchingresado);
     public float ObtenerGolesdeEquipo(int idteam);
     public List<String[]> ObtenerEquipoSegunPartido(int idmatch);
+    public int UltimoMatchCreado();
 }

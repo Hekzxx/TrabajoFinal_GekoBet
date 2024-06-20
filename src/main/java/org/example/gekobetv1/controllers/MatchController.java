@@ -112,4 +112,9 @@ public class MatchController {
         return dto;
     }
 
+    @GetMapping("/last")
+    public int UltimoMatchCreado(){
+        return mS.UltimoMatchCreado();
+    }
+
 }

@@ -64,5 +64,13 @@ public class FavoriteController {
         return dto;
     }
 
+    @GetMapping("/listar/{id}")
+    public List<FavoriteDTO> ListarFavoritosPorUsuario(@PathVariable("id") Integer id){
+        return fS.ListaFavoritosPorUsuarioId(id).stream().map(y->{
+            ModelMapper m=new ModelMapper();
+            return m.map(y,FavoriteDTO.class);
+        }).collect(Collectors.toList());
+    }
+
 
 }
