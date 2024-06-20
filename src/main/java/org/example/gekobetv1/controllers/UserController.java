@@ -52,4 +52,12 @@ public class UserController {
         return dto;
     }
 
+    @GetMapping("/listar/{id}")
+    public List<UserDTO> listarUsuarioPorId(@PathVariable("id") Integer id){
+        return uS.ListarUsuariosPorId(id).stream().map(y->{
+            ModelMapper m=new ModelMapper();
+            return m.map(y,UserDTO.class);
+        }).collect(Collectors.toList());
+    }
+
 }
