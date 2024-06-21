@@ -49,9 +49,7 @@ public class TeamController {
         List<QueryTeamEquiposFavXPaisDTO> dtoLista = new ArrayList<>();
         for(String[] columna:filaLista){
             QueryTeamEquiposFavXPaisDTO dto = new QueryTeamEquiposFavXPaisDTO();
-            dto.setId(Integer.parseInt(columna[0]));
-            dto.setId_ligue(Integer.parseInt(columna[1]));
-            dto.setNameteam(columna[2]);
+            dto.setNameteam(columna[0]);
             dtoLista.add(dto);
         }
         return dtoLista;
