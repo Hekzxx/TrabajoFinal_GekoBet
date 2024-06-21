@@ -30,5 +30,7 @@ public class UserServiceImplement implements IUserService{
         return uR.findById(id).orElse(new User());
     }
 
+    @Override
+    public List<User> ListarUsuariosPorId(int id_usuario) {return uR.ListarUsuariosPorId(id_usuario);};
 
 }

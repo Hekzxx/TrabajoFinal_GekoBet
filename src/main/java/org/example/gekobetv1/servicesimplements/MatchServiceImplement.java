@@ -58,5 +58,8 @@ public class MatchServiceImplement implements IMatchService {
         return mR.ObtenerEquipoSegunPartido(idm);
     }
 
+    @Override
+    public int UltimoMatchCreado() {return mR.UltimoMatchCreado();}
+
 
 }

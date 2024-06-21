@@ -40,7 +40,7 @@ public interface IMatchRepository extends JpaRepository<Match,Integer> {
             "where m.id = :idmatchingresado", nativeQuery = true)
     public float ProbabilidadEquipo(int teamrecord, int idmatchingresado);
 
-    @Query(value = "select r.resultado from record r\n" +
+    @Query(value = "select SUM(r.resultado) from record r\n" +
             "inner join team t on r.id_team = t.id\n" +
             "where t.id = :idteam", nativeQuery = true)
     public float ObtenerGolesdeEquipo(int idteam);
@@ -50,4 +50,7 @@ public interface IMatchRepository extends JpaRepository<Match,Integer> {
             "inner join match m on txm.id_match = m.id \n" +
             "where m.id= :idm ", nativeQuery = true)
     public List<String[]> ObtenerEquipoSegunPartido(int idm);
+
+    @Query(value = "select m.id from match m order by m.id desc limit 1", nativeQuery = true)
+    public int UltimoMatchCreado();
 }
