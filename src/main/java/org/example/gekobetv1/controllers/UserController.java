@@ -65,4 +65,10 @@ public class UserController {
         return uS.idUsername(username);
     }
 
+    @GetMapping("/last")
+    public int ultimousuariocreado()
+    {
+        return uS.ultimousuariocreado();
+    }
+
 }

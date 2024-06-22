@@ -32,4 +32,6 @@ public interface IUserRepository extends JpaRepository<User,Integer> {
             "where u.username = :username", nativeQuery = true)
     public int idUsername(String username);
 
+    @Query(value = "select id from usuario order by id desc limit 1", nativeQuery = true)
+    public int ultimousuariocreado();
 }

@@ -9,4 +9,5 @@ public interface IUserService {
     public User listId(int id);
     public List<User> ListarUsuariosPorId(int id_usuario);
     public int idUsername(String username);
+    public int ultimousuariocreado();
 }
