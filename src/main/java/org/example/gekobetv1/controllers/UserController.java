@@ -60,4 +60,9 @@ public class UserController {
         }).collect(Collectors.toList());
     }
 
+    @GetMapping("/idUser/{username}")
+    public int idusuario(@PathVariable("username") String username){
+        return uS.idUsername(username);
+    }
+
 }

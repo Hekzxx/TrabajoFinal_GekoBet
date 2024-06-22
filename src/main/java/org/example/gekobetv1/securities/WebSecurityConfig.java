@@ -74,6 +74,7 @@ public class WebSecurityConfig {
                         .requestMatchers(antMatcher("/teamsxmatches")).permitAll()
                         .requestMatchers(antMatcher("/tickets")).permitAll()
                         .requestMatchers(antMatcher("/users")).permitAll()
+                        .requestMatchers(antMatcher("/users/idUser/{username}")).permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())

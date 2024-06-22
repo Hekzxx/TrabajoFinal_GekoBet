@@ -31,6 +31,11 @@ public class UserServiceImplement implements IUserService{
     }
 
     @Override
-    public List<User> ListarUsuariosPorId(int id_usuario) {return uR.ListarUsuariosPorId(id_usuario);};
+    public List<User> ListarUsuariosPorId(int id_usuario) {return uR.ListarUsuariosPorId(id_usuario);}
+
+    @Override
+    public int idUsername(String username) {
+        return uR.idUsername(username);
+    }
 
 }

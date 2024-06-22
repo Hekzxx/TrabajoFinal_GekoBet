@@ -8,4 +8,5 @@ public interface IUserService {
     public void delete(int id);
     public User listId(int id);
     public List<User> ListarUsuariosPorId(int id_usuario);
+    public int idUsername(String username);
 }
