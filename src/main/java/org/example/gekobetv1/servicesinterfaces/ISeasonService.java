@@ -8,4 +8,5 @@ public interface ISeasonService {
     public void insert(Season season);
     public List<Season> list();
     public void delete(int id);
+    public Season listId(int id);
 }

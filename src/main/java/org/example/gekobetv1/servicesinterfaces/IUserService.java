@@ -6,4 +6,7 @@ public interface IUserService {
     public void insert(User user);
     public List<User> list();
     public void delete(int id);
+    public User listId(int id);
+    public List<User> ListarUsuariosPorId(int id_usuario);
+    public int idUsername(String username);
 }

@@ -18,4 +18,8 @@ public interface IFavoriteRepository extends JpaRepository<Favorite,Integer> {
             "and u.id = :id_usuario", nativeQuery = true)
     public List<String[]> listaEquipoFavorito(int id_usuario);
 
+    @Query(value = "select f.* from favorite f \n" +
+            "where f.id_user = :id_usuarios", nativeQuery = true)
+    public List<Favorite> listaFavoritosPorUsuarioId(int id_usuarios);
+
 }

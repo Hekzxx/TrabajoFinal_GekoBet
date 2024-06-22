@@ -33,6 +33,10 @@ public class TeamServiceImplement implements ITeamService {
     @Override
     public void delete(int id) { tR.deleteById(id); }
 
+    @Override
+    public Team listId(int id) {
+        return tR.findById(id).orElse(new Team());
+    }
 
 
 }

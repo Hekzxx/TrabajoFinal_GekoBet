@@ -1,5 +1,4 @@
 package org.example.gekobetv1.controllers;
-
 import org.example.gekobetv1.dtos.*;
 import org.example.gekobetv1.entities.Team;
 import org.example.gekobetv1.servicesinterfaces.ITeamService;
@@ -14,7 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/teams")
-@PreAuthorize("hasAuthority('ADMIN')")
+//@PreAuthorize("hasAuthority('ADMIN')")
 public class TeamController {
     @Autowired
     private ITeamService tS;
@@ -50,9 +49,7 @@ public class TeamController {
         List<QueryTeamEquiposFavXPaisDTO> dtoLista = new ArrayList<>();
         for(String[] columna:filaLista){
             QueryTeamEquiposFavXPaisDTO dto = new QueryTeamEquiposFavXPaisDTO();
-            dto.setId(Integer.parseInt(columna[0]));
-            dto.setId_ligue(Integer.parseInt(columna[1]));
-            dto.setNameteam(columna[2]);
+            dto.setNameteam(columna[0]);
             dtoLista.add(dto);
         }
         return dtoLista;
@@ -67,6 +64,13 @@ public class TeamController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         tS.delete(id);
+    }
+
+    @GetMapping("/{id}")
+    public TeamDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m= new ModelMapper();
+        TeamDTO dto=m.map(tS.listId(id),TeamDTO.class);
+        return dto;
     }
 
 }

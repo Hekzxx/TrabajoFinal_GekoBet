@@ -16,7 +16,7 @@ public interface ITeamRepository extends JpaRepository<Team, Integer> {
             "inner join season s on s.id = l.id_season \n" +
             "where s.year = 2024", nativeQuery = true)
     public List<String[]> cantEquipoTemporadaActual();
-    @Query(value = "select distinct t.* from team t \n" +
+    @Query(value = "select distinct t.nameteam from team t \n" +
             "inner join favorite f on f.id_team = t.id \n" +
             "inner join usuario u on u.id = f.id_user \n" +
             "inner join ligue l on l.id = t.id_ligue \n" +

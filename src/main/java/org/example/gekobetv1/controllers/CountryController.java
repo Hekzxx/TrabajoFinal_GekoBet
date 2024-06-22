@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/countries")
-@PreAuthorize("hasAuthority('ADMIN')")
+//@PreAuthorize("hasAuthority('ADMIN')")
 public class CountryController {
     @Autowired
     private ICountryService cS;
@@ -42,6 +42,13 @@ public class CountryController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         cS.delete(id);
+    }
+
+    @GetMapping("/{id}")
+    public CountryDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m= new ModelMapper();
+        CountryDTO dto=m.map(cS.listID(id),CountryDTO.class);
+        return dto;
     }
 
 }

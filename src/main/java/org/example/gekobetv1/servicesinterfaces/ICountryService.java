@@ -6,4 +6,5 @@ public interface ICountryService {
     public void insert(Country country);
     public List<Country> list();
     public void delete(int id);
+    public Country listID(int id);
 }

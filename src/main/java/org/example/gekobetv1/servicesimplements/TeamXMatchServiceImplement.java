@@ -27,5 +27,10 @@ public class TeamXMatchServiceImplement implements ITeamXMatchService {
         tmR.deleteById(id);
     }
 
+    @Override
+    public TeamXMatch listId(int id) {
+        return tmR.findById(id).orElse(new TeamXMatch());
+    }
+
 
 }

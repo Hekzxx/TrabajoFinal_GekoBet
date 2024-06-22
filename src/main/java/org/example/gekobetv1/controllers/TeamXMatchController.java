@@ -1,10 +1,5 @@
 package org.example.gekobetv1.controllers;
-
-import org.example.gekobetv1.dtos.MatchDTO;
-import org.example.gekobetv1.dtos.SeasonDTO;
 import org.example.gekobetv1.dtos.TeamXMatchDTO;
-import org.example.gekobetv1.entities.Match;
-import org.example.gekobetv1.entities.Season;
 import org.example.gekobetv1.entities.TeamXMatch;
 import org.example.gekobetv1.servicesinterfaces.ITeamXMatchService;
 import org.modelmapper.ModelMapper;
@@ -17,7 +12,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/teamsxmatches")
-@PreAuthorize("hasAuthority('ADMIN')")
+//@PreAuthorize("hasAuthority('ADMIN')")
 public class TeamXMatchController {
     @Autowired
     private ITeamXMatchService tmS;
@@ -43,6 +38,13 @@ public class TeamXMatchController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         tmS.delete(id);
+    }
+
+    @GetMapping("/{id}")
+    public TeamXMatchDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m= new ModelMapper();
+        TeamXMatchDTO dto=m.map(tmS.listId(id),TeamXMatchDTO.class);
+        return dto;
     }
 
 }
