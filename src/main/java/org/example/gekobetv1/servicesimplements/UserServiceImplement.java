@@ -38,4 +38,6 @@ public class UserServiceImplement implements IUserService{
         return uR.idUsername(username);
     }
 
+    @Override
+    public int ultimousuariocreado() {return uR.ultimousuariocreado();};
 }
