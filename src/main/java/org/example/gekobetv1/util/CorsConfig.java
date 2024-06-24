@@ -33,7 +33,7 @@ public class CorsConfig implements Filter {
         System.out.println("CORS Filter applied on: " + request.getRequestURI());
 
         // Establece el dominio específico en lugar de permitir todos los orígenes
-        response.setHeader("Access-Control-Allow-Origin", "https://geckobet-cd339.web.app");
+        response.setHeader("Access-Control-Allow-Origin", "https://geckobet-cd339.web.app, http://localhost:4200/");
         response.setHeader("Access-Control-Allow-Methods", "DELETE, GET, OPTIONS, PATCH, POST, PUT");
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Headers",
