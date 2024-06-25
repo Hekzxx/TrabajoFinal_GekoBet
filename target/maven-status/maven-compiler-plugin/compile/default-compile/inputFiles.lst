@@ -11,6 +11,7 @@ D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\or
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\entities\Ticket.java
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\servicesimplements\CountryServiceImplement.java
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\servicesinterfaces\IMatchService.java
+D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\dtos\IdUsernameDTO.java
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\servicesinterfaces\IUserService.java
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\securities\WebSecurityConfig.java
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\controllers\SeasonController.java
@@ -28,6 +29,7 @@ D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\or
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\repositories\ITeamXMatchRepository.java
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\servicesimplements\SeasonServiceImplement.java
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\dtos\TeamXMatchDTO.java
+D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\dtos\QueryMatchObtenerEquipoSegunPartidoDTO.java
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\servicesinterfaces\ISeasonService.java
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\controllers\RecordController.java
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\controllers\RoleController.java
@@ -76,6 +78,7 @@ D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\or
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\controllers\CountryController.java
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\securities\JwtRequestFilter.java
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\servicesinterfaces\IRoleService.java
+D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\util\CorsConfig.java
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\dtos\QueryTeamCantEquipoTempActualDTO.java
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\servicesimplements\MatchServiceImplement.java
 D:\upc\6tociclo.0\Arqui web\gekobetoficial\TrabajoFinal_GekoBet\src\main\java\org\example\gekobetv1\servicesinterfaces\ILigueService.java

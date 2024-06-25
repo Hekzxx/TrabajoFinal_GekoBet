@@ -17,6 +17,7 @@ org\example\gekobetv1\repositories\ITeamXMatchRepository.class
 org\example\gekobetv1\securities\JwtRequest.class
 org\example\gekobetv1\servicesimplements\CountryServiceImplement.class
 org\example\gekobetv1\controllers\RoleController.class
+org\example\gekobetv1\util\CorsConfig.class
 org\example\gekobetv1\repositories\IMatchRepository.class
 org\example\gekobetv1\servicesinterfaces\IRoleService.class
 org\example\gekobetv1\repositories\IFavoriteRepository.class
@@ -24,8 +25,10 @@ org\example\gekobetv1\dtos\QueryTicketTicketXTeamDTO.class
 org\example\gekobetv1\dtos\QueryTeamCantEquipoTempActualDTO.class
 org\example\gekobetv1\servicesinterfaces\ISeasonService.class
 org\example\gekobetv1\dtos\FavoriteDTO.class
+org\example\gekobetv1\dtos\IdUsernameDTO.class
 org\example\gekobetv1\dtos\QueryMatchPartidosXTemporadaDTO.class
 org\example\gekobetv1\dtos\QueryRecordVictoriasEquipoFavDTO.class
+org\example\gekobetv1\dtos\QueryMatchObtenerEquipoSegunPartidoDTO.class
 org\example\gekobetv1\servicesimplements\JwtUserDetailsService.class
 org\example\gekobetv1\dtos\TeamXMatchDTO.class
 org\example\gekobetv1\servicesimplements\UserServiceImplement.class
